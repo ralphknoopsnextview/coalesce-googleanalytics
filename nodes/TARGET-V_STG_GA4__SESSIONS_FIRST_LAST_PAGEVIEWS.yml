@@ -1,0 +1,78 @@
+fileVersion: 1
+id: 44d3e236-19ca-4fee-b33b-9f91d5f2d87a
+name: V_STG_GA4__SESSIONS_FIRST_LAST_PAGEVIEWS
+operation:
+  config:
+    insertStrategy: UNION
+    selectDistinct: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 75f52c5b-26b9-40b3-826a-62161a26d9ef
+          stepCounter: 44d3e236-19ca-4fee-b33b-9f91d5f2d87a
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: SESSION_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ceca01ea-c8fe-4994-8dfa-1df6ac029a28
+                stepCounter: 0626a5f7-2c60-4b0f-9649-6d105933b95c
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a7abe847-297e-4222-9a00-bf0aeaf77425
+          stepCounter: 44d3e236-19ca-4fee-b33b-9f91d5f2d87a
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: FIRST_PAGE_VIEW_EVENT_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 889f9ec8-1cde-46d0-a9e5-4f6cb1c1ae31
+                stepCounter: 0626a5f7-2c60-4b0f-9649-6d105933b95c
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4d0dcd7d-da61-4f4f-ba3b-79b62a3889ba
+          stepCounter: 44d3e236-19ca-4fee-b33b-9f91d5f2d87a
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: LAST_PAGE_VIEW_EVENT_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 074c0db2-8c7f-427d-a9a4-c5b7468ea734
+                stepCounter: 0626a5f7-2c60-4b0f-9649-6d105933b95c
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: V_PAGE_VIEWS_FIRST_LAST
+        join:
+          joinCondition: FROM {{ ref('TARGET', 'V_PAGE_VIEWS_FIRST_LAST') }} "V_PAGE_VIEWS_FIRST_LAST"
+        name: V_STG_GA4__SESSIONS_FIRST_LAST_PAGEVIEWS
+        noLinkRefs: []
+  name: V_STG_GA4__SESSIONS_FIRST_LAST_PAGEVIEWS
+  overrideSQL: false
+  schema: ""
+  sqlType: View
+  type: sql
+  version: 1
+type: Node

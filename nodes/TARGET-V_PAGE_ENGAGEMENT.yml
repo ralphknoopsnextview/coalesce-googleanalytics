@@ -1,0 +1,170 @@
+fileVersion: 1
+id: 06e9529c-2c87-462c-86f6-395bd2a0ba17
+name: V_PAGE_ENGAGEMENT
+operation:
+  config:
+    insertStrategy: UNION
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1f04542d-bfa2-4c53-b84a-b466156c95bd
+          stepCounter: 06e9529c-2c87-462c-86f6-395bd2a0ba17
+        config: {}
+        dataType: DATE
+        description: ""
+        name: EVENT_DATE_DT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a4426770-5e9d-4df7-bd86-3a7c4c3cc9c5
+                stepCounter: 92bdf94b-e849-4ed8-8fe9-51b449ccb57f
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 78e07e5d-82a4-47c1-93fc-8f30cafbe715
+          stepCounter: 06e9529c-2c87-462c-86f6-395bd2a0ba17
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: STREAM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 66e2c72c-f944-4191-808e-bab7a7e6c72c
+                stepCounter: 92bdf94b-e849-4ed8-8fe9-51b449ccb57f
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 99dcb89a-45b1-4191-83b0-79f7db1d417a
+          stepCounter: 06e9529c-2c87-462c-86f6-395bd2a0ba17
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: PAGE_LOCATION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: eba3c8e9-5500-4152-880d-a448ccfb9941
+                stepCounter: 92bdf94b-e849-4ed8-8fe9-51b449ccb57f
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1fc95da8-4be9-4871-87aa-3648efac914b
+          stepCounter: 06e9529c-2c87-462c-86f6-395bd2a0ba17
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: PAGE_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4ebfb4dc-6c90-46cb-a430-119f6735cf09
+                stepCounter: 92bdf94b-e849-4ed8-8fe9-51b449ccb57f
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c392f495-b50b-4414-a9d8-29b46aff0515
+          stepCounter: 06e9529c-2c87-462c-86f6-395bd2a0ba17
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: PAGE_VIEWS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b193a4dd-97af-464f-a305-20b9119149b4
+                stepCounter: 92bdf94b-e849-4ed8-8fe9-51b449ccb57f
+            transform: SUM(page_views)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 95b09c1b-d4fd-4958-a34a-13466bbee0dd
+          stepCounter: 06e9529c-2c87-462c-86f6-395bd2a0ba17
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: DISTINCT_CLIENT_KEYS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 20ce147a-7d19-4e61-8042-02fae5b0d096
+                stepCounter: 92bdf94b-e849-4ed8-8fe9-51b449ccb57f
+            transform: SUM(distinct_client_keys)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 570d18f9-459f-45b7-a884-c679a7ec844a
+          stepCounter: 06e9529c-2c87-462c-86f6-395bd2a0ba17
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: ENTRANCES
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 170d68cb-ebcf-4a4f-80ca-f5056238db0f
+                stepCounter: 92bdf94b-e849-4ed8-8fe9-51b449ccb57f
+            transform: SUM(entrances)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4e3d56ae-ed92-4872-8a91-d4a315399707
+          stepCounter: 06e9529c-2c87-462c-86f6-395bd2a0ba17
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: AVG_ENGAGEMENT_TIME_DENOMINATOR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 22bd79ea-e0b0-45c0-ac52-b660e7f02c23
+                stepCounter: 2c264f96-7bed-471f-b5d7-07d8c4ed7040
+            transform: SUM( PAGE_ENGAGEMENT_DENOMINATOR)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5dcc81f2-2949-438d-8680-04d8cdaee032
+          stepCounter: 06e9529c-2c87-462c-86f6-395bd2a0ba17
+        config: {}
+        dataType: ""
+        description: ""
+        name: TOTAL_ENGAGEMENT_TIME_MSEC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b0740ee9-5110-4abe-85f7-3c1091ea5ce1
+                stepCounter: 2c264f96-7bed-471f-b5d7-07d8c4ed7040
+            transform: SUM(PAGE_ENGAGEMENT_TIME_MSEC)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          V_PAGE_VIEW: 92bdf94b-e849-4ed8-8fe9-51b449ccb57f
+          V_STG_GA4__PAGE_ENGAGED_TIME: 2c264f96-7bed-471f-b5d7-07d8c4ed7040
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: V_PAGE_VIEW
+          - locationName: TARGET
+            nodeName: V_STG_GA4__PAGE_ENGAGED_TIME
+        join:
+          joinCondition: |-
+            FROM {{ ref('TARGET', 'V_STG_GA4__PAGE_ENGAGED_TIME') }} "V_STG_GA4__PAGE_ENGAGED_TIME"
+            right join {{ ref('TARGET', 'V_PAGE_VIEW') }} "V_PAGE_VIEW"
+            ON  V_STG_GA4__PAGE_ENGAGED_TIME.page_engagement_key = V_PAGE_VIEW.page_engagement_key
+            group by 1,2,3,4
+        name: V_PAGE_ENGAGEMENT
+        noLinkRefs: []
+  name: V_PAGE_ENGAGEMENT
+  overrideSQL: false
+  schema: ""
+  sqlType: View
+  type: sql
+  version: 1
+type: Node

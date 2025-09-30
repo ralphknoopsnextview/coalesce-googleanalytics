@@ -1,0 +1,68 @@
+fileVersion: 1
+id: f81d28fb-beb9-4305-8c89-efdcf3a146fd
+name: V_EVENT_AND_QUERY_STRING
+operation:
+  config:
+    insertStrategy: UNION
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5393504b-90c8-4d95-bad0-f26cf0590bdc
+          stepCounter: f81d28fb-beb9-4305-8c89-efdcf3a146fd
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: EVENT_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6478670a-a091-4697-a4cc-51cc70e1f8fd
+                stepCounter: d1181589-c832-402c-bee1-ba01e308c21c
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 57918659-8f32-4880-bc71-6c65d7235ac4
+          stepCounter: f81d28fb-beb9-4305-8c89-efdcf3a146fd
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: QS_SPLIT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: split(page_query_string, '&')
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: V_STG_GA4__EVENTS
+        join:
+          joinCondition: FROM {{ ref('TARGET', 'V_STG_GA4__EVENTS') }} "V_STG_GA4__EVENTS"
+        name: V_EVENT_AND_QUERY_STRING
+        noLinkRefs: []
+  name: V_EVENT_AND_QUERY_STRING
+  overrideSQL: false
+  schema: ""
+  sqlType: View
+  type: sql
+  version: 1
+type: Node

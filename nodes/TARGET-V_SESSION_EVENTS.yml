@@ -1,0 +1,170 @@
+fileVersion: 1
+id: e2b1f51f-755e-470d-8e73-0879a206cbb9
+name: V_SESSION_EVENTS
+operation:
+  config:
+    insertStrategy: UNION
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9d17826c-1018-4cdb-8c3b-f11909665d1c
+          stepCounter: e2b1f51f-755e-470d-8e73-0879a206cbb9
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: SESSION_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 75474885-8627-403a-bf62-4d2c19c9c89f
+                stepCounter: d1181589-c832-402c-bee1-ba01e308c21c
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4f7d80d7-f86d-4a1d-a414-f471c05f6662
+          stepCounter: e2b1f51f-755e-470d-8e73-0879a206cbb9
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: ""
+        name: EVENT_TIMESTAMP
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b22f9c40-4179-456e-9c69-68521392dc57
+                stepCounter: d1181589-c832-402c-bee1-ba01e308c21c
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 64f09ade-5385-4450-b09f-491a9d0c04c7
+          stepCounter: e2b1f51f-755e-470d-8e73-0879a206cbb9
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: EVENT_SOURCE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1e7c0d09-bf8c-47d3-b599-dd8570f8cd6c
+                stepCounter: d1181589-c832-402c-bee1-ba01e308c21c
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a929f1a9-cca6-4671-a841-0059db996f65
+          stepCounter: e2b1f51f-755e-470d-8e73-0879a206cbb9
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: EVENT_MEDIUM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: fadbc9e1-3f19-40a2-ba8a-dfbc1892b03d
+                stepCounter: d1181589-c832-402c-bee1-ba01e308c21c
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 680d96f5-8e23-4721-bc41-e7b4ba5e6f0d
+          stepCounter: e2b1f51f-755e-470d-8e73-0879a206cbb9
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: EVENT_CAMPAIGN
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a25d7382-1881-4bce-9038-1e8fe4752c20
+                stepCounter: d1181589-c832-402c-bee1-ba01e308c21c
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: f81817e5-876e-482e-8347-0545a5382f44
+          stepCounter: e2b1f51f-755e-470d-8e73-0879a206cbb9
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: SOURCE_CATEGORY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 12e1727c-ac39-497e-8805-66c83a0ea753
+                stepCounter: bd387d65-d1a5-4ef1-aa0c-7fafc199d4b4
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 466cfeb9-6f10-4650-b30b-4d0ea8966b54
+          stepCounter: e2b1f51f-755e-470d-8e73-0879a206cbb9
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: EVENT_CONTENT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: c6be1044-df29-4c29-9001-78d23f03f609
+          stepCounter: e2b1f51f-755e-470d-8e73-0879a206cbb9
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: EVENT_TERM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          GA4_SOURCE_CATEGORIES: bd387d65-d1a5-4ef1-aa0c-7fafc199d4b4
+          V_STG_GA4__EVENTS: d1181589-c832-402c-bee1-ba01e308c21c
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: SOURCE
+            nodeName: GA4_SOURCE_CATEGORIES
+          - locationName: TARGET
+            nodeName: V_STG_GA4__EVENTS
+        join:
+          joinCondition: |-
+            FROM {{ ref('TARGET', 'V_STG_GA4__EVENTS') }} "V_STG_GA4__EVENTS"
+            LEFT JOIN {{ ref('SOURCE', 'GA4_SOURCE_CATEGORIES') }} "GA4_SOURCE_CATEGORIES"
+            on "V_STG_GA4__EVENTS"."EVENT_SOURCE" = "GA4_SOURCE_CATEGORIES"."SOURCE"
+            where session_key is not null
+            and event_name != 'session_start'
+            and event_name != 'first_visit'
+        name: V_SESSION_EVENTS
+        noLinkRefs: []
+  name: V_SESSION_EVENTS
+  overrideSQL: false
+  schema: ""
+  sqlType: View
+  type: sql
+  version: 1
+type: Node

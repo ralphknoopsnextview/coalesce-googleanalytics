@@ -1,0 +1,52 @@
+fileVersion: 1
+id: 4e12fea8-7b47-446a-a4b1-8f87bb4e9f38
+name: V_STG_GA4__DERIVED_SESSION_PROPERTIES
+operation:
+  config:
+    insertStrategy: UNION
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b49b0bd6-89ec-4c39-bd25-4b34859561ae
+          stepCounter: 4e12fea8-7b47-446a-a4b1-8f87bb4e9f38
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: SESSION_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 717e2532-cb4d-4147-b5a1-236b17c8be16
+                stepCounter: 8e42bb59-ef96-46da-bc53-ceb580cc84ee
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          V_UNNEST_EVENT_PARAMS: 8e42bb59-ef96-46da-bc53-ceb580cc84ee
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: V_UNNEST_EVENT_PARAMS
+        join:
+          joinCondition: |
+            FROM {{ ref('TARGET', 'V_UNNEST_EVENT_PARAMS') }} "V_UNNEST_EVENT_PARAMS"
+        name: V_STG_GA4__DERIVED_SESSION_PROPERTIES
+        noLinkRefs: []
+  name: V_STG_GA4__DERIVED_SESSION_PROPERTIES
+  overrideSQL: false
+  schema: ""
+  sqlType: View
+  type: sql
+  version: 1
+type: Node

@@ -1,0 +1,212 @@
+fileVersion: 1
+id: ab319073-9406-42f1-a9f9-e52c03247233
+name: FCT_JOIN_CONVERSIONS
+operation:
+  config:
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 60b812df-3661-4573-863c-8430adacda07
+          stepCounter: ab319073-9406-42f1-a9f9-e52c03247233
+        config: {}
+        dataType: DATE
+        description: ""
+        isBusinessKey: true
+        name: EVENT_DATE_DT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a530abb3-b2eb-46b4-8c9f-7e3bb627f983
+                stepCounter: 35bb2dce-de87-4640-9843-7f25703f96ec
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ccf4fffa-c88b-4bef-8f8e-b5abeba59a28
+          stepCounter: ab319073-9406-42f1-a9f9-e52c03247233
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        isBusinessKey: true
+        name: STREAM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f3316f10-fe1b-4d79-bf43-5c54d8217199
+                stepCounter: 35bb2dce-de87-4640-9843-7f25703f96ec
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d85f2c22-a79c-4478-9bf3-029ee278d9be
+          stepCounter: ab319073-9406-42f1-a9f9-e52c03247233
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        isBusinessKey: true
+        name: PAGE_LOCATION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 16910cab-9607-4460-bf6f-d0c75d4a2e8b
+                stepCounter: 35bb2dce-de87-4640-9843-7f25703f96ec
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 387d12bb-1499-43bf-a0c2-a7a33279301f
+          stepCounter: ab319073-9406-42f1-a9f9-e52c03247233
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: PAGE_VIEWS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f0d27f6c-3b5d-46d5-843a-46ad8f8b8d84
+                stepCounter: 35bb2dce-de87-4640-9843-7f25703f96ec
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c6a43c2a-16a0-45ee-b2b3-ab2f02795992
+          stepCounter: ab319073-9406-42f1-a9f9-e52c03247233
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: DISTINCT_CLIENT_KEYS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ba097fc9-d06a-4290-9c30-09c3a08621c5
+                stepCounter: 35bb2dce-de87-4640-9843-7f25703f96ec
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 175f9f1f-bd94-4eb9-8167-f8c6dd062de9
+          stepCounter: ab319073-9406-42f1-a9f9-e52c03247233
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: ENTRANCES
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f3aa462a-e2d5-4884-a9c3-e007be27d5f0
+                stepCounter: 35bb2dce-de87-4640-9843-7f25703f96ec
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7ec00abd-e6ef-4d37-aae6-ef67dcc1ae32
+          stepCounter: ab319073-9406-42f1-a9f9-e52c03247233
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: AVG_ENGAGEMENT_TIME_DENOMINATOR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 77f59ec4-5176-453d-816d-abdeffa0e28e
+                stepCounter: 35bb2dce-de87-4640-9843-7f25703f96ec
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a9941310-5b2f-43dc-8c78-fe043545d6ac
+          stepCounter: ab319073-9406-42f1-a9f9-e52c03247233
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: TOTAL_ENGAGEMENT_TIME_MSEC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f4252249-dc9e-4497-87af-8ae449f647e8
+                stepCounter: 35bb2dce-de87-4640-9843-7f25703f96ec
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: a417068d-d82b-4dd7-b7a6-6768fe84f943
+          stepCounter: ab319073-9406-42f1-a9f9-e52c03247233
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemCreateDate: true
+        name: SYSTEM_CREATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 71587b04-b1a0-4a0e-9cf3-00498bfbbbc9
+          stepCounter: ab319073-9406-42f1-a9f9-e52c03247233
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemUpdateDate: true
+        name: SYSTEM_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: bbdaa26c-de73-46a2-b977-68143117a192
+          stepCounter: ab319073-9406-42f1-a9f9-e52c03247233
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: SCROLL_EVENTS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: ifnull(V_SCROLL.scroll_events, 0)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          V_JOIN_CONVERSIONS: 35bb2dce-de87-4640-9843-7f25703f96ec
+          V_SCROLL: 749c6fa8-8ce7-4011-9570-2042e37d321a
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: V_JOIN_CONVERSIONS
+          - locationName: TARGET
+            nodeName: V_SCROLL
+        join:
+          joinCondition: |-
+            FROM {{ ref('TARGET', 'V_JOIN_CONVERSIONS') }} "V_JOIN_CONVERSIONS"
+            left join  {{ ref('TARGET', 'V_SCROLL') }} "V_SCROLL" 
+            ON V_SCROLL.event_date_dt = V_JOIN_CONVERSIONS.event_date_dt
+            AND V_SCROLL.page_location = V_JOIN_CONVERSIONS.page_location
+        name: FCT_JOIN_CONVERSIONS
+        noLinkRefs: []
+  name: FCT_JOIN_CONVERSIONS
+  overrideSQL: false
+  schema: ""
+  sqlType: Fact
+  type: sql
+  version: 1
+type: Node

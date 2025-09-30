@@ -1,0 +1,81 @@
+fileVersion: 1
+id: 749c6fa8-8ce7-4011-9570-2042e37d321a
+name: V_SCROLL
+operation:
+  config:
+    insertStrategy: UNION
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: db38cfbb-7add-4bbc-bb15-ca570e5fc40d
+          stepCounter: 749c6fa8-8ce7-4011-9570-2042e37d321a
+        config: {}
+        dataType: DATE
+        description: ""
+        name: EVENT_DATE_DT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f9c898ae-b59d-49ba-a136-158565a9e8db
+                stepCounter: f53ab456-db0e-4283-82fa-6baaedf05295
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: cb75064e-1be5-4653-a7fd-b36c046c70cb
+          stepCounter: 749c6fa8-8ce7-4011-9570-2042e37d321a
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: PAGE_LOCATION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3d2c7b76-9310-477e-bd47-7f761cc639bb
+                stepCounter: f53ab456-db0e-4283-82fa-6baaedf05295
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7bd8deb3-9627-417f-8f05-b93bd5f9dc86
+          stepCounter: 749c6fa8-8ce7-4011-9570-2042e37d321a
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: SCROLL_EVENTS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 992b08c3-23b7-4c4c-a5aa-36596a7d7981
+                stepCounter: f53ab456-db0e-4283-82fa-6baaedf05295
+            transform: count(event_name)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          V_STG_GA4__EVENT_SCROLL: f53ab456-db0e-4283-82fa-6baaedf05295
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: V_STG_GA4__EVENT_SCROLL
+        join:
+          joinCondition: |-
+            FROM {{ ref('TARGET', 'V_STG_GA4__EVENT_SCROLL') }} "V_STG_GA4__EVENT_SCROLL"
+            group by 1,2
+        name: V_SCROLL
+        noLinkRefs: []
+  name: V_SCROLL
+  overrideSQL: false
+  schema: ""
+  sqlType: View
+  type: sql
+  version: 1
+type: Node

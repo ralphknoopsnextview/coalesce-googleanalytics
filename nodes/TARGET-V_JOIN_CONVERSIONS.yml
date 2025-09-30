@@ -1,0 +1,169 @@
+fileVersion: 1
+id: 35bb2dce-de87-4640-9843-7f25703f96ec
+name: V_JOIN_CONVERSIONS
+operation:
+  config:
+    insertStrategy: UNION
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a530abb3-b2eb-46b4-8c9f-7e3bb627f983
+          stepCounter: 35bb2dce-de87-4640-9843-7f25703f96ec
+        config: {}
+        dataType: DATE
+        description: ""
+        name: EVENT_DATE_DT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1f04542d-bfa2-4c53-b84a-b466156c95bd
+                stepCounter: 06e9529c-2c87-462c-86f6-395bd2a0ba17
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f3316f10-fe1b-4d79-bf43-5c54d8217199
+          stepCounter: 35bb2dce-de87-4640-9843-7f25703f96ec
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: STREAM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 78e07e5d-82a4-47c1-93fc-8f30cafbe715
+                stepCounter: 06e9529c-2c87-462c-86f6-395bd2a0ba17
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 16910cab-9607-4460-bf6f-d0c75d4a2e8b
+          stepCounter: 35bb2dce-de87-4640-9843-7f25703f96ec
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: PAGE_LOCATION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 99dcb89a-45b1-4191-83b0-79f7db1d417a
+                stepCounter: 06e9529c-2c87-462c-86f6-395bd2a0ba17
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0a97621d-37a0-4740-b7a6-1531329977ce
+          stepCounter: 35bb2dce-de87-4640-9843-7f25703f96ec
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: PAGE_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1fc95da8-4be9-4871-87aa-3648efac914b
+                stepCounter: 06e9529c-2c87-462c-86f6-395bd2a0ba17
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f0d27f6c-3b5d-46d5-843a-46ad8f8b8d84
+          stepCounter: 35bb2dce-de87-4640-9843-7f25703f96ec
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: PAGE_VIEWS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c392f495-b50b-4414-a9d8-29b46aff0515
+                stepCounter: 06e9529c-2c87-462c-86f6-395bd2a0ba17
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ba097fc9-d06a-4290-9c30-09c3a08621c5
+          stepCounter: 35bb2dce-de87-4640-9843-7f25703f96ec
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: DISTINCT_CLIENT_KEYS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 95b09c1b-d4fd-4958-a34a-13466bbee0dd
+                stepCounter: 06e9529c-2c87-462c-86f6-395bd2a0ba17
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f3aa462a-e2d5-4884-a9c3-e007be27d5f0
+          stepCounter: 35bb2dce-de87-4640-9843-7f25703f96ec
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: ENTRANCES
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 570d18f9-459f-45b7-a884-c679a7ec844a
+                stepCounter: 06e9529c-2c87-462c-86f6-395bd2a0ba17
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 77f59ec4-5176-453d-816d-abdeffa0e28e
+          stepCounter: 35bb2dce-de87-4640-9843-7f25703f96ec
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: AVG_ENGAGEMENT_TIME_DENOMINATOR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4e3d56ae-ed92-4872-8a91-d4a315399707
+                stepCounter: 06e9529c-2c87-462c-86f6-395bd2a0ba17
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f4252249-dc9e-4497-87af-8ae449f647e8
+          stepCounter: 35bb2dce-de87-4640-9843-7f25703f96ec
+        config: {}
+        dataType: ""
+        description: ""
+        name: TOTAL_ENGAGEMENT_TIME_MSEC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5dcc81f2-2949-438d-8680-04d8cdaee032
+                stepCounter: 06e9529c-2c87-462c-86f6-395bd2a0ba17
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          V_PAGE_ENGAGEMENT: 06e9529c-2c87-462c-86f6-395bd2a0ba17
+          V_STG_GA4__PAGE_CONVERSIONS: aa1ef627-3c76-4b95-ba53-90b8db88c59c
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: V_PAGE_ENGAGEMENT
+          - locationName: TARGET
+            nodeName: V_STG_GA4__PAGE_CONVERSIONS
+        join:
+          joinCondition: |-
+            FROM {{ ref('TARGET', 'V_PAGE_ENGAGEMENT') }} "V_PAGE_ENGAGEMENT"
+            left join {{ ref('TARGET','V_STG_GA4__PAGE_CONVERSIONS') }} "V_STG_GA4__PAGE_CONVERSIONS"
+            ON  V_PAGE_ENGAGEMENT.page_key = V_STG_GA4__PAGE_CONVERSIONS.page_key
+        name: V_JOIN_CONVERSIONS
+        noLinkRefs: []
+  name: V_JOIN_CONVERSIONS
+  overrideSQL: false
+  schema: ""
+  sqlType: View
+  type: sql
+  version: 1
+type: Node

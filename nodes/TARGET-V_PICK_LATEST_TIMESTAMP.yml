@@ -1,0 +1,81 @@
+fileVersion: 1
+id: ff181727-541d-4d3c-8e2e-a4fdd56cde4b
+name: V_PICK_LATEST_TIMESTAMP
+operation:
+  config:
+    insertStrategy: UNION
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ee7b1e86-7858-47ae-a8d1-b77fd2e864c3
+          stepCounter: ff181727-541d-4d3c-8e2e-a4fdd56cde4b
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: LAST_SEEN_USER_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ffe2cecc-1ff1-4ea4-9baa-0614216633fc
+                stepCounter: 5542f134-4983-4337-95cb-ed47951e57f3
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 994de991-bf4d-4770-8e75-e389ac6a6802
+          stepCounter: ff181727-541d-4d3c-8e2e-a4fdd56cde4b
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: CLIENT_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c8d66495-d81b-4a2a-a7ad-04896592e711
+                stepCounter: 5542f134-4983-4337-95cb-ed47951e57f3
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: adc3d436-0ba4-472c-9386-13e4d82364d8
+          stepCounter: ff181727-541d-4d3c-8e2e-a4fdd56cde4b
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: LAST_SEEN_USER_ID_TIMESTAMP
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d13842c5-0c4a-48c3-80cc-481d3c1f4b92
+                stepCounter: 5542f134-4983-4337-95cb-ed47951e57f3
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          V_EVENTS_WITH_USER_ID: 5542f134-4983-4337-95cb-ed47951e57f3
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: V_EVENTS_WITH_USER_ID
+        join:
+          joinCondition: |-
+            FROM {{ ref('TARGET', 'V_EVENTS_WITH_USER_ID') }} "V_EVENTS_WITH_USER_ID"
+            qualify row_number() over(partition by client_key order by last_seen_user_id_timestamp desc) = 1
+        name: V_PICK_LATEST_TIMESTAMP
+        noLinkRefs: []
+  name: V_PICK_LATEST_TIMESTAMP
+  overrideSQL: false
+  schema: ""
+  sqlType: View
+  type: sql
+  version: 1
+type: Node

@@ -1,0 +1,276 @@
+fileVersion: 1
+id: a401242f-dce4-4bac-8047-c2bc69c12ddb
+name: V_SET_DEFAULT_CHANNEL_GROUPING_TRAFFIC_DAILY
+operation:
+  config:
+    insertStrategy: UNION
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: cd5e600b-741f-4f30-9ab9-ee2116138282
+          stepCounter: a401242f-dce4-4bac-8047-c2bc69c12ddb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: CLIENT_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c0d33626-58e7-4bc4-a0b2-173ee6e8a95f
+                stepCounter: f29c2521-300c-403c-9814-bda338a81af5
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e6bdceaa-2e28-49d6-a497-b4d70284c4b0
+          stepCounter: a401242f-dce4-4bac-8047-c2bc69c12ddb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: SESSION_PARTITION_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8ce63316-da1f-4719-907e-8be87cc172b0
+                stepCounter: f29c2521-300c-403c-9814-bda338a81af5
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9ee96428-6ad1-4c6b-b939-a299576f8c5d
+          stepCounter: a401242f-dce4-4bac-8047-c2bc69c12ddb
+        config: {}
+        dataType: DATE
+        description: ""
+        name: EVENT_DATE_DT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 792ff5ee-b471-41c4-a559-5c421c20c6e9
+                stepCounter: f29c2521-300c-403c-9814-bda338a81af5
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 040991bf-9bf5-48c9-8a1c-834712d3c019
+          stepCounter: a401242f-dce4-4bac-8047-c2bc69c12ddb
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: ""
+        name: EVENT_TIMESTAMP
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: cc21ea2f-5823-4c55-b80e-de691e4d9c9e
+                stepCounter: f29c2521-300c-403c-9814-bda338a81af5
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1517b120-f20a-4a82-9451-285a7bc14ed5
+          stepCounter: a401242f-dce4-4bac-8047-c2bc69c12ddb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: EVENT_SOURCE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 89c29824-8980-40bd-82b3-24e29588a480
+                stepCounter: f29c2521-300c-403c-9814-bda338a81af5
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8a9560bf-356a-4e8f-a8a6-813e631daf7e
+          stepCounter: a401242f-dce4-4bac-8047-c2bc69c12ddb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: EVENT_MEDIUM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7a155ac1-d8b6-4a7a-85fe-de4f68172e6f
+                stepCounter: f29c2521-300c-403c-9814-bda338a81af5
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 07156936-beb7-48a7-963a-dfbd556b4335
+          stepCounter: a401242f-dce4-4bac-8047-c2bc69c12ddb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: EVENT_CAMPAIGN
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: fdd380f5-ec8d-4ad0-9f6a-6d0aedcf41ce
+                stepCounter: f29c2521-300c-403c-9814-bda338a81af5
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 75202a57-1db5-4ac5-aeb3-bf7244fa51a3
+          stepCounter: a401242f-dce4-4bac-8047-c2bc69c12ddb
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: SOURCE_CATEGORY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8bc68576-d1a6-480a-be19-4f6ca463e496
+                stepCounter: f29c2521-300c-403c-9814-bda338a81af5
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 83e69f99-643a-42fd-8823-10b210a8b8d4
+          stepCounter: a401242f-dce4-4bac-8047-c2bc69c12ddb
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: DEFAULT_CHANNEL_GROUPING
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: |-
+              CASE
+                -- Direct
+                WHEN (event_source IS NULL AND event_medium IS NULL)
+                  OR (event_source = '(direct)' AND event_medium IN ('(none)', '(not set)')) THEN 'Direct'
+
+                -- Cross-network
+                WHEN REGEXP_LIKE(event_campaign, 'cross-network') THEN 'Cross-network'
+
+                -- Paid Shopping
+                WHEN (
+                    source_category = 'SOURCE_CATEGORY_SHOPPING'
+                    OR REGEXP_LIKE(event_campaign, '^(.*(([^a-df-z]|^)shop|shopping).*)$')
+                  )
+                  AND REGEXP_LIKE(event_medium, '^(.*cp.*|ppc|retargeting|paid.*)$') THEN 'Paid Shopping'
+
+                -- Paid Search
+                WHEN source_category = 'SOURCE_CATEGORY_SEARCH'
+                  AND REGEXP_LIKE(event_medium, '^(.*cp.*|ppc|retargeting|paid.*)$') THEN 'Paid Search'
+
+                -- Paid Social
+                WHEN source_category = 'SOURCE_CATEGORY_SOCIAL'
+                  AND REGEXP_LIKE(event_medium, '^(.*cp.*|ppc|retargeting|paid.*)$') THEN 'Paid Social'
+
+                -- Paid Video
+                WHEN source_category = 'SOURCE_CATEGORY_VIDEO'
+                  AND REGEXP_LIKE(event_medium, '^(.*cp.*|ppc|retargeting|paid.*)$') THEN 'Paid Video'
+
+                -- Display
+                WHEN event_medium IN ('display', 'banner', 'expandable', 'interstitial', 'cpm') THEN 'Display'
+
+                -- Paid Other
+                WHEN REGEXP_LIKE(event_medium, '^(.*cp.*|ppc|retargeting|paid.*)$') THEN 'Paid Other'
+
+                -- Organic Shopping
+                WHEN source_category = 'SOURCE_CATEGORY_SHOPPING'
+                  OR REGEXP_LIKE(event_campaign, '^(.*(([^a-df-z]|^)shop|shopping).*)$') THEN 'Organic Shopping'
+
+                -- Organic Social
+                WHEN source_category = 'SOURCE_CATEGORY_SOCIAL'
+                  OR event_medium IN ('social', 'social-network', 'social-media', 'sm', 'social network', 'social media') THEN 'Organic Social'
+
+                -- Organic Video
+                WHEN source_category = 'SOURCE_CATEGORY_VIDEO'
+                  OR REGEXP_LIKE(event_medium, '^(.*video.*)$') THEN 'Organic Video'
+
+                -- Organic Search
+                WHEN source_category = 'SOURCE_CATEGORY_SEARCH'
+                  OR event_medium = 'organic' THEN 'Organic Search'
+
+                -- Referral
+                WHEN event_medium IN ('referral', 'app', 'link') THEN 'Referral'
+
+                -- Email
+                WHEN REGEXP_LIKE(event_source, 'email|e-mail|e_mail|e mail')
+                  OR REGEXP_LIKE(event_medium, 'email|e-mail|e_mail|e mail') THEN 'Email'
+
+                -- Affiliates
+                WHEN event_medium = 'affiliate' THEN 'Affiliates'
+
+                -- Audio
+                WHEN event_medium = 'audio' THEN 'Audio'
+
+                -- SMS
+                WHEN event_source = 'sms'
+                  OR event_medium = 'sms' THEN 'SMS'
+
+                -- Mobile Push Notifications
+                WHEN REGEXP_LIKE(event_medium, 'push$')
+                  OR REGEXP_LIKE(event_medium, 'mobile|notification')
+                  OR event_source = 'firebase' THEN 'Mobile Push Notifications'
+
+                -- Unassigned
+                ELSE 'Unassigned'
+              END
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 98cb3bbf-a34d-4e4f-8b12-41a72897d186
+          stepCounter: a401242f-dce4-4bac-8047-c2bc69c12ddb
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: EVENT_CONTENT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1d5a102-1351-4a6d-bfb5-d3b50b534141
+          stepCounter: a401242f-dce4-4bac-8047-c2bc69c12ddb
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: EVENT_TERM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: V_STG_GA4__EVENTS_TRAFFIC_DAILY
+        join:
+          joinCondition: FROM {{ ref('TARGET', 'V_STG_GA4__EVENTS_TRAFFIC_DAILY') }} "V_STG_GA4__EVENTS_TRAFFIC_DAILY"
+        name: V_SET_DEFAULT_CHANNEL_GROUPING_TRAFFIC_DAILY
+        noLinkRefs: []
+  name: V_SET_DEFAULT_CHANNEL_GROUPING_TRAFFIC_DAILY
+  overrideSQL: false
+  schema: ""
+  sqlType: View
+  type: sql
+  version: 1
+type: Node

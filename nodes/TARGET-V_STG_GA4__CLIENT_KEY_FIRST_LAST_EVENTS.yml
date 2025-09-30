@@ -1,0 +1,934 @@
+fileVersion: 1
+id: e7d24dd8-19d6-4a35-b52e-2ba57fb5908b
+name: V_STG_GA4__CLIENT_KEY_FIRST_LAST_EVENTS
+operation:
+  config:
+    insertStrategy: UNION
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 908521b5-0bdc-4890-a9f9-bcef2fb5b9e6
+          stepCounter: e7d24dd8-19d6-4a35-b52e-2ba57fb5908b
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: CLIENT_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c7a4848b-2d17-4a1a-91c7-3523817a63ec
+                stepCounter: d673b81e-51ed-4576-9198-d63abffa0a0b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2cb4c1f6-d996-4d36-9a5e-d4dd3ee9936a
+          stepCounter: e7d24dd8-19d6-4a35-b52e-2ba57fb5908b
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: FIRST_EVENT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4e1d43ad-0ff6-48e1-b359-b5ef022219ef
+                stepCounter: d673b81e-51ed-4576-9198-d63abffa0a0b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: be86c9b6-2359-4b36-b08e-f4d76dc27574
+          stepCounter: e7d24dd8-19d6-4a35-b52e-2ba57fb5908b
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: LAST_EVENT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f3027568-1ca1-49c4-9f26-d9d484b67c8e
+                stepCounter: d673b81e-51ed-4576-9198-d63abffa0a0b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1b5966cb-0735-4b15-ad29-6cd9863832f6
+          stepCounter: e7d24dd8-19d6-4a35-b52e-2ba57fb5908b
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: STREAM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3745aef2-209d-42df-a9df-5058dac7d615
+                stepCounter: d673b81e-51ed-4576-9198-d63abffa0a0b
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: b98fc387-e56f-4e37-a19b-8e5ee896b7bb
+          stepCounter: e7d24dd8-19d6-4a35-b52e-2ba57fb5908b
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: FIRST_GEO_CONTINENT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: "\"EVENTS_FIRST\".\"GEO_CONTINENT\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 94abd5ea-f719-4f3d-bdb2-550af5eb9d76
+          stepCounter: e7d24dd8-19d6-4a35-b52e-2ba57fb5908b
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: LAST_GEO_CONTINENT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: EVENTS_LAST.GEO_CONTINENT
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: d9581e38-232a-49df-ab1d-8b37f4720af3
+          stepCounter: e7d24dd8-19d6-4a35-b52e-2ba57fb5908b
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: FIRST_GEO_COUNTRY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: EVENTS_FIRST.GEO_COUNTRY
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9547b6f1-c354-4f14-a45f-e9beca62ae77
+          stepCounter: e7d24dd8-19d6-4a35-b52e-2ba57fb5908b
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: LAST_GEO_COUNTRY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: EVENTS_LAST.GEO_COUNTRY
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 13636171-d482-48f2-946d-8c4bc9cb674c
+          stepCounter: e7d24dd8-19d6-4a35-b52e-2ba57fb5908b
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: FIRST_GEO_REGION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: EVENTS_FIRST.GEO_REGION
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 60c7a793-aa27-4011-b4c5-06dcd459c374
+          stepCounter: e7d24dd8-19d6-4a35-b52e-2ba57fb5908b
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: LAST_GEO_REGION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: EVENTS_LAST.GEO_REGION
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6f327aaa-c03b-495d-8930-f6dcfc161a7d
+          stepCounter: e7d24dd8-19d6-4a35-b52e-2ba57fb5908b
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: FIRST_GEO_CITY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: EVENTS_FIRST.GEO_CITY
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 88958561-180f-452a-8225-18461e4d2fb0
+          stepCounter: e7d24dd8-19d6-4a35-b52e-2ba57fb5908b
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: LAST_GEO_CITY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: EVENTS_LAST.GEO_CITY
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: e6627288-d0cd-4589-806f-36d476a5b8c3
+          stepCounter: e7d24dd8-19d6-4a35-b52e-2ba57fb5908b
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: FIRST_GEO_SUB_CONTINENT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: EVENTS_FIRST.GEO_SUB_CONTINENT
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2c2ee960-0e9b-4f41-b3f0-be1b9eee6c9d
+          stepCounter: e7d24dd8-19d6-4a35-b52e-2ba57fb5908b
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: LAST_GEO_SUB_CONTINENT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: EVENTS_LAST.GEO_SUB_CONTINENT
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1dc46e30-a1f3-4b90-9373-3aff4471e3b8
+          stepCounter: e7d24dd8-19d6-4a35-b52e-2ba57fb5908b
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: FIRST_GEO_METRO
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: EVENTS_FIRST.GEO_METRO
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b95e88ff-f076-4df0-879c-4332e4564d25
+          stepCounter: e7d24dd8-19d6-4a35-b52e-2ba57fb5908b
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: LAST_GEO_METRO
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: EVENTS_LAST.GEO_METRO
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6f4f6f2a-93be-47d1-8de1-175702c2fa95
+          stepCounter: e7d24dd8-19d6-4a35-b52e-2ba57fb5908b
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: FIRST_DEVICE_CATEGORY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: EVENTS_FIRST.DEVICE_CATEGORY
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c9c8bd8c-92ee-4df7-b823-068d91452437
+          stepCounter: e7d24dd8-19d6-4a35-b52e-2ba57fb5908b
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: LAST_DEVICE_CATEGORY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: EVENTS_LAST.DEVICE_CATEGORY
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 07ce81b3-72e1-49db-b49b-723f8da366f1
+          stepCounter: e7d24dd8-19d6-4a35-b52e-2ba57fb5908b
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: FIRST_DEVICE_MOBILE_BRAND_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: EVENTS_FIRST.DEVICE_MOBILE_BRAND_NAME
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 25873d6b-8c2c-4016-aaeb-7a5950e747a0
+          stepCounter: e7d24dd8-19d6-4a35-b52e-2ba57fb5908b
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: LAST_DEVICE_MOBILE_BRAND_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: EVENTS_LAST.DEVICE_MOBILE_BRAND_NAME
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: afe47efd-6f26-4142-8029-818b4c7261ef
+          stepCounter: e7d24dd8-19d6-4a35-b52e-2ba57fb5908b
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: FIRST_DEVICE_MOBILE_MODEL_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: EVENTS_FIRST.DEVICE_MOBILE_MODEL_NAME
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 11415c68-c35a-4dde-a2bf-7a4c8f79e4d1
+          stepCounter: e7d24dd8-19d6-4a35-b52e-2ba57fb5908b
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: LAST_DEVICE_MOBILE_MODEL_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: EVENTS_LAST.DEVICE_MOBILE_MODEL_NAME
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 25a5ae6e-eefb-41a0-9c57-9ec0eaa1f68a
+          stepCounter: e7d24dd8-19d6-4a35-b52e-2ba57fb5908b
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: FIRST_DEVICE_MOBILE_MARKETING_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: EVENTS_FIRST.DEVICE_MOBILE_MARKETING_NAME
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: cf670ac9-6818-4cf9-a2d0-8dd804aa7813
+          stepCounter: e7d24dd8-19d6-4a35-b52e-2ba57fb5908b
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: LAST_DEVICE_MOBILE_MARKETING_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: EVENTS_LAST.DEVICE_MOBILE_MARKETING_NAME
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 98de2b20-4688-4d9a-b62d-8857ae020dbc
+          stepCounter: e7d24dd8-19d6-4a35-b52e-2ba57fb5908b
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: FIRST_DEVICE_MOBILE_OS_HARDWARE_MODEL
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: EVENTS_FIRST.DEVICE_MOBILE_OS_HARDWARE_MODEL
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2356bc2d-f821-49b0-a863-e3ea22428263
+          stepCounter: e7d24dd8-19d6-4a35-b52e-2ba57fb5908b
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: LAST_DEVICE_MOBILE_OS_HARDWARE_MODEL
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: EVENTS_LAST.DEVICE_MOBILE_OS_HARDWARE_MODEL
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 80499b14-f6af-4951-8847-b1937d347354
+          stepCounter: e7d24dd8-19d6-4a35-b52e-2ba57fb5908b
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: FIRST_DEVICE_OPERATING_SYSTEM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: EVENTS_FIRST.DEVICE_OPERATING_SYSTEM
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b95272fb-164a-4156-8b07-5c730754f4e0
+          stepCounter: e7d24dd8-19d6-4a35-b52e-2ba57fb5908b
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: LAST_DEVICE_OPERATING_SYSTEM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: EVENTS_LAST.DEVICE_OPERATING_SYSTEM
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7f54a805-e935-424d-a8fc-586f7666f0ac
+          stepCounter: e7d24dd8-19d6-4a35-b52e-2ba57fb5908b
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: FIRST_DEVICE_OPERATING_SYSTEM_VERSION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: EVENTS_FIRST.DEVICE_OPERATING_SYSTEM_VERSION
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4a5bd3d3-659b-49bd-9af7-fb0c5878b991
+          stepCounter: e7d24dd8-19d6-4a35-b52e-2ba57fb5908b
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: LAST_DEVICE_OPERATING_SYSTEM_VERSION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: EVENTS_LAST.DEVICE_OPERATING_SYSTEM_VERSION
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1da32bc2-5702-4b08-ab17-ab2aa3bf25ab
+          stepCounter: e7d24dd8-19d6-4a35-b52e-2ba57fb5908b
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: FIRST_DEVICE_VENDOR_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: "EVENTS_FIRST.DEVICE_VENDOR_ID "
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b42c891c-68fd-4399-b54d-9b05eeee3f5d
+          stepCounter: e7d24dd8-19d6-4a35-b52e-2ba57fb5908b
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: LAST_DEVICE_VENDOR_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: "EVENTS_LAST.DEVICE_VENDOR_ID "
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 079a0c2b-c9f1-4128-a4e8-7a0b58c543b6
+          stepCounter: e7d24dd8-19d6-4a35-b52e-2ba57fb5908b
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: FIRST_DEVICE_ADVERTISING_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: EVENTS_FIRST.DEVICE_ADVERTISING_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 62220b01-7cf1-41f7-92b6-a3018e55cb28
+          stepCounter: e7d24dd8-19d6-4a35-b52e-2ba57fb5908b
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: LAST_DEVICE_ADVERTISING_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: EVENTS_LAST.DEVICE_ADVERTISING_ID
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: fbacb4bf-9f5d-445e-a42e-062b991d58ef
+          stepCounter: e7d24dd8-19d6-4a35-b52e-2ba57fb5908b
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: FIRST_DEVICE_LANGUAGE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: EVENTS_FIRST.DEVICE_LANGUAGE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7519a2d7-00a6-4dfa-9312-307f5b63271b
+          stepCounter: e7d24dd8-19d6-4a35-b52e-2ba57fb5908b
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: LAST_DEVICE_LANGUAGE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: EVENTS_LAST.DEVICE_LANGUAGE
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 829af971-3aa5-433e-8d92-f28d9fcf9b73
+          stepCounter: e7d24dd8-19d6-4a35-b52e-2ba57fb5908b
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: FIRST_DEVICE_IS_LIMITED_AD_TRACKING
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: EVENTS_FIRST.DEVICE_IS_LIMITED_AD_TRACKING
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0678f5f8-a975-4eb3-8727-93992013d855
+          stepCounter: e7d24dd8-19d6-4a35-b52e-2ba57fb5908b
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: LAST_DEVICE_IS_LIMITED_AD_TRACKING
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: EVENTS_LAST.DEVICE_IS_LIMITED_AD_TRACKING
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4d783523-d481-438d-9ded-adbea359a8d1
+          stepCounter: e7d24dd8-19d6-4a35-b52e-2ba57fb5908b
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: FIRST_DEVICE_TIME_ZONE_OFFSET_SECONDS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: EVENTS_FIRST.DEVICE_TIME_ZONE_OFFSET_SECONDS
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 00eff813-9a48-40f4-a9cc-394846d3a3a4
+          stepCounter: e7d24dd8-19d6-4a35-b52e-2ba57fb5908b
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: LAST_DEVICE_TIME_ZONE_OFFSET_SECONDS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: EVENTS_LAST.DEVICE_TIME_ZONE_OFFSET_SECONDS
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: ed8b5c4d-c47a-4006-be57-813a02ee130d
+          stepCounter: e7d24dd8-19d6-4a35-b52e-2ba57fb5908b
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: FIRST_DEVICE_BROWSER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: EVENTS_FIRST.DEVICE_BROWSER
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: fd4d96b8-ac38-42dd-a33f-1ff273864bcd
+          stepCounter: e7d24dd8-19d6-4a35-b52e-2ba57fb5908b
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: LAST_DEVICE_BROWSER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: EVENTS_LAST.DEVICE_BROWSER
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1c81b610-1ba9-4ba0-85e9-7b6174df6d9a
+          stepCounter: e7d24dd8-19d6-4a35-b52e-2ba57fb5908b
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: FIRST_DEVICE_BROWSER_VERSION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: EVENTS_FIRST.DEVICE_BROWSER_VERSION
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8c08cfc8-3015-4a15-8590-88fe32072997
+          stepCounter: e7d24dd8-19d6-4a35-b52e-2ba57fb5908b
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: LAST_DEVICE_BROWSER_VERSION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: EVENTS_LAST.DEVICE_BROWSER_VERSION
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: bb50dfe3-eec7-4102-931b-ead9dd5be1bb
+          stepCounter: e7d24dd8-19d6-4a35-b52e-2ba57fb5908b
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: FIRST_DEVICE_WEB_INFO_BROWSER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: EVENTS_FIRST.DEVICE_WEB_INFO_BROWSER
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 813f151c-36f2-4828-90a2-ff1a9b238e74
+          stepCounter: e7d24dd8-19d6-4a35-b52e-2ba57fb5908b
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: LAST_DEVICE_WEB_INFO_BROWSER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: EVENTS_LAST.DEVICE_WEB_INFO_BROWSER
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 735947e8-dd40-454a-831d-693edec9ec5d
+          stepCounter: e7d24dd8-19d6-4a35-b52e-2ba57fb5908b
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: FIRST_DEVICE_WEB_INFO_BROWSER_VERSION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: EVENTS_FIRST.DEVICE_WEB_INFO_BROWSER_VERSION
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 323996f3-8eea-43b4-af21-59836fe06d51
+          stepCounter: e7d24dd8-19d6-4a35-b52e-2ba57fb5908b
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: LAST_DEVICE_WEB_INFO_BROWSER_VERSION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: EVENTS_LAST.DEVICE_WEB_INFO_BROWSER_VERSION
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: a521926e-7f52-4f8a-b782-8601d2db2458
+          stepCounter: e7d24dd8-19d6-4a35-b52e-2ba57fb5908b
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: FIRST_DEVICE_WEB_INFO_HOSTNAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: EVENTS_FIRST.DEVICE_WEB_INFO_HOSTNAME
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 870109d9-c04d-4de0-a36a-8c0fa1bc8734
+          stepCounter: e7d24dd8-19d6-4a35-b52e-2ba57fb5908b
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: LAST_DEVICE_WEB_INFO_HOSTNAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: EVENTS_LAST.DEVICE_WEB_INFO_HOSTNAME
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: c3d44f7b-0296-4e35-a84c-6c0a59ae5f52
+          stepCounter: e7d24dd8-19d6-4a35-b52e-2ba57fb5908b
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: FIRST_USER_CAMPAIGN
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: EVENTS_FIRST.USER_CAMPAIGN
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ff32f2b8-dc56-4ba3-b04f-a60c6debe9f6
+          stepCounter: e7d24dd8-19d6-4a35-b52e-2ba57fb5908b
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: LAST_USER_CAMPAIGN
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: EVENTS_LAST.USER_CAMPAIGN
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 197d1f11-0019-460c-b4f3-8cd978feb9ad
+          stepCounter: e7d24dd8-19d6-4a35-b52e-2ba57fb5908b
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: FIRST_USER_MEDIUM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: EVENTS_FIRST.USER_MEDIUM
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9993b35a-0c66-41b6-bb58-0c1ffc325f2f
+          stepCounter: e7d24dd8-19d6-4a35-b52e-2ba57fb5908b
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: LAST_USER_MEDIUM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: EVENTS_LAST.USER_MEDIUM
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 20c65925-afca-4025-b4b6-66ff96fe9a94
+          stepCounter: e7d24dd8-19d6-4a35-b52e-2ba57fb5908b
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: FIRST_USER_SOURCE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: EVENTS_FIRST.USER_SOURCE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e878bf4c-b197-41a7-87c8-b0385ef74e9a
+          stepCounter: e7d24dd8-19d6-4a35-b52e-2ba57fb5908b
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: LAST_USER_SOURCE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: EVENTS_LAST.USER_SOURCE
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          EVENTS_FIRST: d1181589-c832-402c-bee1-ba01e308c21c
+          EVENTS_LAST: d1181589-c832-402c-bee1-ba01e308c21c
+          V_EVENTS_BY_CLIENT_KEY: d673b81e-51ed-4576-9198-d63abffa0a0b
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: V_EVENTS_BY_CLIENT_KEY
+          - locationName: TARGET
+            nodeName: V_STG_GA4__EVENTS
+        join:
+          joinCondition: |-
+            FROM {{ ref('TARGET', 'V_EVENTS_BY_CLIENT_KEY') }} "V_EVENTS_BY_CLIENT_KEY"
+            left join {{ ref('TARGET', 'V_STG_GA4__EVENTS') }} "EVENTS_FIRST"
+                    on V_EVENTS_BY_CLIENT_KEY.first_event = EVENTS_FIRST.event_key
+                left join {{ ref('TARGET', 'V_STG_GA4__EVENTS') }} "EVENTS_LAST"
+                    on V_EVENTS_BY_CLIENT_KEY.last_event = EVENTS_LAST.event_key
+        name: V_STG_GA4__CLIENT_KEY_FIRST_LAST_EVENTS
+        noLinkRefs: []
+  name: V_STG_GA4__CLIENT_KEY_FIRST_LAST_EVENTS
+  overrideSQL: false
+  schema: ""
+  sqlType: View
+  type: sql
+  version: 1
+type: Node

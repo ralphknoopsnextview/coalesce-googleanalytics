@@ -1,0 +1,99 @@
+fileVersion: 1
+id: 0626a5f7-2c60-4b0f-9649-6d105933b95c
+name: V_PAGE_VIEWS_FIRST_LAST
+operation:
+  config:
+    insertStrategy: UNION
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ceca01ea-c8fe-4994-8dfa-1df6ac029a28
+          stepCounter: 0626a5f7-2c60-4b0f-9649-6d105933b95c
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: SESSION_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 75474885-8627-403a-bf62-4d2c19c9c89f
+                stepCounter: d1181589-c832-402c-bee1-ba01e308c21c
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 889f9ec8-1cde-46d0-a9e5-4f6cb1c1ae31
+          stepCounter: 0626a5f7-2c60-4b0f-9649-6d105933b95c
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: FIRST_PAGE_VIEW_EVENT_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: |-
+              FIRST_VALUE(event_key) OVER (
+                  PARTITION BY session_key 
+                  ORDER BY event_timestamp 
+                  ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING
+              )
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 074c0db2-8c7f-427d-a9a4-c5b7468ea734
+          stepCounter: 0626a5f7-2c60-4b0f-9649-6d105933b95c
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: LAST_PAGE_VIEW_EVENT_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: |-
+              LAST_VALUE(event_key) OVER (
+                  PARTITION BY session_key 
+                  ORDER BY event_timestamp 
+                  ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING
+              ) 
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          V_STG_GA4__EVENTS: d1181589-c832-402c-bee1-ba01e308c21c
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: V_STG_GA4__EVENTS
+        join:
+          joinCondition: |-
+            FROM {{ ref('TARGET', 'V_STG_GA4__EVENTS') }} "V_STG_GA4__EVENTS"
+            WHERE "V_STG_GA4__EVENTS"."EVENT_NAME" = 'page_view'
+        name: V_PAGE_VIEWS_FIRST_LAST
+        noLinkRefs: []
+  name: V_PAGE_VIEWS_FIRST_LAST
+  overrideSQL: false
+  schema: ""
+  sqlType: View
+  type: sql
+  version: 1
+type: Node

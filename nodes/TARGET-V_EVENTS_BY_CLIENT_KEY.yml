@@ -1,0 +1,92 @@
+fileVersion: 1
+id: d673b81e-51ed-4576-9198-d63abffa0a0b
+name: V_EVENTS_BY_CLIENT_KEY
+operation:
+  config:
+    insertStrategy: UNION
+    selectDistinct: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c7a4848b-2d17-4a1a-91c7-3523817a63ec
+          stepCounter: d673b81e-51ed-4576-9198-d63abffa0a0b
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: CLIENT_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: bbd3d1bd-697e-4c43-9d6e-45220c137250
+                stepCounter: de8b34c7-cef3-4a01-b2ea-22ffb2e5ba28
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4e1d43ad-0ff6-48e1-b359-b5ef022219ef
+          stepCounter: d673b81e-51ed-4576-9198-d63abffa0a0b
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: FIRST_EVENT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d3d51f78-f8d7-4567-90ae-63785d8a2273
+                stepCounter: de8b34c7-cef3-4a01-b2ea-22ffb2e5ba28
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f3027568-1ca1-49c4-9f26-d9d484b67c8e
+          stepCounter: d673b81e-51ed-4576-9198-d63abffa0a0b
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: LAST_EVENT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 80efaba6-50f0-47e0-a329-a5c06fee3f0b
+                stepCounter: de8b34c7-cef3-4a01-b2ea-22ffb2e5ba28
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3745aef2-209d-42df-a9df-5058dac7d615
+          stepCounter: d673b81e-51ed-4576-9198-d63abffa0a0b
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: STREAM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 16f5442c-0d9b-46d4-89a6-54df3c0505ff
+                stepCounter: de8b34c7-cef3-4a01-b2ea-22ffb2e5ba28
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: V_FIRST_LAST_EVENT
+        join:
+          joinCondition: FROM {{ ref('TARGET', 'V_FIRST_LAST_EVENT') }} "V_FIRST_LAST_EVENT"
+        name: V_EVENTS_BY_CLIENT_KEY
+        noLinkRefs: []
+  name: V_EVENTS_BY_CLIENT_KEY
+  overrideSQL: false
+  schema: ""
+  sqlType: View
+  type: sql
+  version: 1
+type: Node

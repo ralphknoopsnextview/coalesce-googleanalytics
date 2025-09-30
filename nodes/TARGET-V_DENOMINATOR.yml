@@ -1,0 +1,71 @@
+fileVersion: 1
+id: a09b2739-d5c2-47c1-a9e0-892a408a4441
+name: V_DENOMINATOR
+operation:
+  config:
+    insertStrategy: UNION
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c193c5a4-0209-4ca5-8417-2190bf90b527
+          stepCounter: a09b2739-d5c2-47c1-a9e0-892a408a4441
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: PAGE_ENGAGEMENT_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f4d56b05-66a2-4a74-a7f6-c888255ed149
+                stepCounter: a969590d-d3d6-450c-a89c-2fb560b28adf
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 26b57ec1-f4ec-40b2-b240-d692e75df318
+          stepCounter: a09b2739-d5c2-47c1-a9e0-892a408a4441
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: PAGE_ENGAGEMENT_DENOMINATOR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: count(page_engagement_key)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          V_MATCHED_PV: a969590d-d3d6-450c-a89c-2fb560b28adf
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: V_MATCHED_PV
+        join:
+          joinCondition: |-
+            FROM {{ ref('TARGET', 'V_MATCHED_PV') }} "V_MATCHED_PV"
+            group by 1
+        name: V_DENOMINATOR
+        noLinkRefs: []
+  name: V_DENOMINATOR
+  overrideSQL: false
+  schema: ""
+  sqlType: View
+  type: sql
+  version: 1
+type: Node

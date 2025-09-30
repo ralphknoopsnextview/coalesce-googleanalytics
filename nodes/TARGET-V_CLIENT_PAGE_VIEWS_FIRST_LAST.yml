@@ -1,0 +1,89 @@
+fileVersion: 1
+id: 41bf2b34-6223-4859-b998-9ea8614a019e
+name: V_CLIENT_PAGE_VIEWS_FIRST_LAST
+operation:
+  config:
+    insertStrategy: UNION
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 95dd7223-96b3-40f4-a20b-5176d33cd779
+          stepCounter: 41bf2b34-6223-4859-b998-9ea8614a019e
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: CLIENT_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5241e974-2f2c-4cfc-b371-f9577f96e267
+                stepCounter: 4afda2df-bc6e-4f24-b0ca-3ad4d60c3213
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: b7affd65-0a12-4f29-939e-c1dd6f84e8e4
+          stepCounter: 41bf2b34-6223-4859-b998-9ea8614a019e
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: FIRST_PAGE_VIEW_EVENT_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: FIRST_VALUE(event_key) OVER (PARTITION BY client_key ORDER BY event_timestamp ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: a8316401-654e-432c-936c-0b13e90ea91b
+          stepCounter: 41bf2b34-6223-4859-b998-9ea8614a019e
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: LAST_PAGE_VIEW_EVENT_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: LAST_VALUE(event_key) OVER (PARTITION BY client_key ORDER BY event_timestamp ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          V_STG_GA4__EVENT_PAGE_VIEW: 4afda2df-bc6e-4f24-b0ca-3ad4d60c3213
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: V_STG_GA4__EVENT_PAGE_VIEW
+        join:
+          joinCondition: |-
+            FROM {{ ref('TARGET', 'V_STG_GA4__EVENT_PAGE_VIEW') }} "V_STG_GA4__EVENT_PAGE_VIEW"
+            where client_key is not null
+        name: V_CLIENT_PAGE_VIEWS_FIRST_LAST
+        noLinkRefs: []
+  name: V_CLIENT_PAGE_VIEWS_FIRST_LAST
+  overrideSQL: false
+  schema: ""
+  sqlType: View
+  type: sql
+  version: 1
+type: Node

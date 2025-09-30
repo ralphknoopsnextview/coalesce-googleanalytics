@@ -1,0 +1,83 @@
+fileVersion: 1
+id: 5542f134-4983-4337-95cb-ed47951e57f3
+name: V_EVENTS_WITH_USER_ID
+operation:
+  config:
+    insertStrategy: UNION
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ffe2cecc-1ff1-4ea4-9baa-0614216633fc
+          stepCounter: 5542f134-4983-4337-95cb-ed47951e57f3
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: USER_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 88894424-7217-4307-b513-58ff397d7d2f
+                stepCounter: d1181589-c832-402c-bee1-ba01e308c21c
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c8d66495-d81b-4a2a-a7ad-04896592e711
+          stepCounter: 5542f134-4983-4337-95cb-ed47951e57f3
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: CLIENT_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 91ebeb26-576c-404c-b05c-105034f2ddd2
+                stepCounter: d1181589-c832-402c-bee1-ba01e308c21c
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d13842c5-0c4a-48c3-80cc-481d3c1f4b92
+          stepCounter: 5542f134-4983-4337-95cb-ed47951e57f3
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: LAST_SEEN_USER_ID_TIMESTAMP
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b22f9c40-4179-456e-9c69-68521392dc57
+                stepCounter: d1181589-c832-402c-bee1-ba01e308c21c
+            transform: max(event_timestamp)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          V_STG_GA4__EVENTS: d1181589-c832-402c-bee1-ba01e308c21c
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: V_STG_GA4__EVENTS
+        join:
+          joinCondition: |-
+            FROM {{ ref('TARGET', 'V_STG_GA4__EVENTS') }} "V_STG_GA4__EVENTS"
+            where user_id is not null
+                    and client_key is not null
+            group by 1,2
+        name: V_EVENTS_WITH_USER_ID
+        noLinkRefs: []
+  name: V_EVENTS_WITH_USER_ID
+  overrideSQL: false
+  schema: ""
+  sqlType: View
+  type: sql
+  version: 1
+type: Node

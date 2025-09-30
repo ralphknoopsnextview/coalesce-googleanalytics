@@ -1,0 +1,194 @@
+fileVersion: 1
+id: 652be4cf-93a1-4fca-9bc0-f273a29b410c
+name: V_GA4__CLIENT_KEYS
+operation:
+  config:
+    insertStrategy: UNION
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a5bd2e6e-140d-4407-8e09-082b198e162d
+          stepCounter: 652be4cf-93a1-4fca-9bc0-f273a29b410c
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: CLIENT_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b138b5c7-1b7a-452a-8808-1c8d58aab933
+                stepCounter: bfd68c9b-cb84-4526-9c74-028204e3553b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 67aefff9-2459-4035-ac28-81233bbe88bb
+          stepCounter: 652be4cf-93a1-4fca-9bc0-f273a29b410c
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: STREAM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8c17a9d8-15de-4d95-9d53-26e40c44c5d4
+                stepCounter: bfd68c9b-cb84-4526-9c74-028204e3553b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 95ca02f5-2a68-42d0-8d09-fc695ad80ef7
+          stepCounter: 652be4cf-93a1-4fca-9bc0-f273a29b410c
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: ""
+        name: FIRST_SEEN_TIMESTAMP
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6b02afeb-66b9-40d5-b902-b63c9717173b
+                stepCounter: bfd68c9b-cb84-4526-9c74-028204e3553b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 627e8bf8-6606-4ef0-880a-11d7ecddbb88
+          stepCounter: 652be4cf-93a1-4fca-9bc0-f273a29b410c
+        config: {}
+        dataType: DATE
+        description: ""
+        name: FIRST_SEEN_START_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: bcae6b2e-88af-4d16-a18a-534c55385bf2
+                stepCounter: bfd68c9b-cb84-4526-9c74-028204e3553b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c296835f-9420-432e-9185-b5275082ca32
+          stepCounter: 652be4cf-93a1-4fca-9bc0-f273a29b410c
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: COUNT_PAGEVIEWS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6eb5edc2-9736-486b-a93f-c87a6b06df90
+                stepCounter: bfd68c9b-cb84-4526-9c74-028204e3553b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2bb03bde-fd89-45f6-ae68-3571be6d67cf
+          stepCounter: 652be4cf-93a1-4fca-9bc0-f273a29b410c
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: SUM_EVENT_VALUE_IN_USD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: fa65dd08-c42e-42ce-9f60-e4aac4e938d6
+                stepCounter: bfd68c9b-cb84-4526-9c74-028204e3553b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8642a76c-397b-49dd-becc-b20b3aa357af
+          stepCounter: 652be4cf-93a1-4fca-9bc0-f273a29b410c
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: SYSTEM_CREATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 58e2f6bb-011f-48d2-8568-f628dfcb9026
+                stepCounter: bfd68c9b-cb84-4526-9c74-028204e3553b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 20774231-9fe0-45d2-80b7-01f5e1adb7c6
+          stepCounter: 652be4cf-93a1-4fca-9bc0-f273a29b410c
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: SYSTEM_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 13a565e3-d107-4216-a51b-adcc13cfaccf
+                stepCounter: bfd68c9b-cb84-4526-9c74-028204e3553b
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 742c820d-60a6-4797-9b4d-ab47bee6cac3
+          stepCounter: 652be4cf-93a1-4fca-9bc0-f273a29b410c
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: USER_ID_OR_CLIENT_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: COALESCE(V_STG_GA4__USER_ID_MAPPING.LAST_SEEN_USER_ID, FCT_GA4__CLIENT_KEYS.CLIENT_KEY)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0b82e037-9cfd-4689-8c95-8c75b3f4efcf
+          stepCounter: 652be4cf-93a1-4fca-9bc0-f273a29b410c
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: IS_USER_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: |-
+              CASE 
+                          WHEN V_STG_GA4__USER_ID_MAPPING.last_seen_user_id is null THEN 0 ELSE 1
+                      END
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          FCT_GA4__CLIENT_KEYS: bfd68c9b-cb84-4526-9c74-028204e3553b
+          V_STG_GA4__USER_ID_MAPPING: effb79ac-00ca-444a-b54f-393a608c9147
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: FCT_GA4__CLIENT_KEYS
+          - locationName: TARGET
+            nodeName: V_STG_GA4__USER_ID_MAPPING
+        join:
+          joinCondition: |-
+            FROM {{ ref('TARGET', 'FCT_GA4__CLIENT_KEYS') }} "FCT_GA4__CLIENT_KEYS"
+            left join {{ref('TARGET', 'V_STG_GA4__USER_ID_MAPPING')}} "V_STG_GA4__USER_ID_MAPPING" 
+            ON V_STG_GA4__USER_ID_MAPPING.client_key = FCT_GA4__CLIENT_KEYS.client_key
+        name: V_GA4__CLIENT_KEYS
+        noLinkRefs: []
+  name: V_GA4__CLIENT_KEYS
+  overrideSQL: false
+  schema: ""
+  sqlType: View
+  type: sql
+  version: 1
+type: Node

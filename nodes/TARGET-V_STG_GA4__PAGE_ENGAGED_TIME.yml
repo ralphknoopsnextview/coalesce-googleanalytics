@@ -1,0 +1,99 @@
+fileVersion: 1
+id: 2c264f96-7bed-471f-b5d7-07d8c4ed7040
+name: V_STG_GA4__PAGE_ENGAGED_TIME
+operation:
+  config:
+    insertStrategy: UNION
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4c7f5649-98a1-48b0-b6f6-cc7cbcfd8e04
+          stepCounter: 2c264f96-7bed-471f-b5d7-07d8c4ed7040
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: PAGE_ENGAGEMENT_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c193c5a4-0209-4ca5-8417-2190bf90b527
+                stepCounter: a09b2739-d5c2-47c1-a9e0-892a408a4441
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 22bd79ea-e0b0-45c0-ac52-b660e7f02c23
+          stepCounter: 2c264f96-7bed-471f-b5d7-07d8c4ed7040
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: PAGE_ENGAGEMENT_DENOMINATOR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 26b57ec1-f4ec-40b2-b240-d692e75df318
+                stepCounter: a09b2739-d5c2-47c1-a9e0-892a408a4441
+            transform: |-
+              case 
+                      when V_PEK_TIME.page_engagement_time is null then null 
+                      else V_DENOMINATOR.page_engagement_denominator 
+                  end
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: b0740ee9-5110-4abe-85f7-3c1091ea5ce1
+          stepCounter: 2c264f96-7bed-471f-b5d7-07d8c4ed7040
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: PAGE_ENGAGEMENT_TIME_MSEC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: |-
+              CASE
+                  WHEN V_PEK_TIME.page_engagement_time IS NULL 
+                       OR V_DENOMINATOR.page_engagement_denominator IS NULL 
+                       OR V_DENOMINATOR.page_engagement_denominator = 0 THEN NULL
+                  ELSE V_PEK_TIME.page_engagement_time / V_DENOMINATOR.page_engagement_denominator
+              END
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          V_DENOMINATOR: a09b2739-d5c2-47c1-a9e0-892a408a4441
+          V_PEK_TIME: 10580207-3024-4968-b2f0-867ce9cd8fb5
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: V_DENOMINATOR
+          - locationName: TARGET
+            nodeName: V_PEK_TIME
+        join:
+          joinCondition: |-
+            FROM {{ ref('TARGET', 'V_DENOMINATOR') }} "V_DENOMINATOR"
+            LEFT JOIN {{ref('TARGET', 'V_PEK_TIME') }} "V_PEK_TIME"
+            on "V_DENOMINATOR"."PAGE_ENGAGEMENT_KEY" = "V_PEK_TIME"."PAGE_ENGAGEMENT_KEY"
+        name: V_STG_GA4__PAGE_ENGAGED_TIME
+        noLinkRefs: []
+  name: V_STG_GA4__PAGE_ENGAGED_TIME
+  overrideSQL: false
+  schema: ""
+  sqlType: View
+  type: sql
+  version: 1
+type: Node

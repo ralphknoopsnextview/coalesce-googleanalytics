@@ -1,0 +1,211 @@
+fileVersion: 1
+id: fee4976a-1087-495c-a468-d22e53a9c385
+name: V_STG_GA4__SESSIONS_TRAFFIC_SOURCES_DAILY
+operation:
+  config:
+    insertStrategy: UNION
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ec25a9b9-0a09-46da-9b91-cf9b8167579b
+          stepCounter: fee4976a-1087-495c-a468-d22e53a9c385
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: CLIENT_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 77439f4b-0a12-4263-8cfa-e6660a0b12eb
+                stepCounter: 18e541f8-e933-4f34-974c-0079e8cfc8d5
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 199ac8a1-fcb6-4c1f-9419-60c7bc94c97f
+          stepCounter: fee4976a-1087-495c-a468-d22e53a9c385
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: SESSION_PARTITION_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 519dc32a-b9e8-4c23-92fd-bbef64120b6b
+                stepCounter: 18e541f8-e933-4f34-974c-0079e8cfc8d5
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9a5d3fa9-817a-428c-beec-f7022cd7a1c0
+          stepCounter: fee4976a-1087-495c-a468-d22e53a9c385
+        config: {}
+        dataType: DATE
+        description: ""
+        name: SESSION_PARTITION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4029eb3b-70ca-4833-a717-d5c15aec7935
+                stepCounter: 18e541f8-e933-4f34-974c-0079e8cfc8d5
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c2a28d17-f696-46f4-9487-f75cd7ac01c5
+          stepCounter: fee4976a-1087-495c-a468-d22e53a9c385
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: SESSION_SOURCE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d87e261f-9ae7-444f-8cae-6e45c409c067
+                stepCounter: 18e541f8-e933-4f34-974c-0079e8cfc8d5
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 33a2ebf2-5847-4b6a-95c6-7d5cd7acf75d
+          stepCounter: fee4976a-1087-495c-a468-d22e53a9c385
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: SESSION_MEDIUM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 987ea227-bc65-4207-b6a0-b7dd84bd3ca3
+                stepCounter: 18e541f8-e933-4f34-974c-0079e8cfc8d5
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 68f255cd-302f-4387-b85c-591f831654ec
+          stepCounter: fee4976a-1087-495c-a468-d22e53a9c385
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: SESSION_SOURCE_CATEGORY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ad6f122a-66ca-4a59-805a-6e5c308c58c6
+                stepCounter: 18e541f8-e933-4f34-974c-0079e8cfc8d5
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ef03bca7-2b1b-470f-a0f3-511004553d54
+          stepCounter: fee4976a-1087-495c-a468-d22e53a9c385
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: SESSION_CAMPAIGN
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6311f5f7-7fc7-42db-a750-1793895858a6
+                stepCounter: 18e541f8-e933-4f34-974c-0079e8cfc8d5
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5c1cacb5-8fee-4645-9a8c-72d631edf141
+          stepCounter: fee4976a-1087-495c-a468-d22e53a9c385
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: SESSION_CONTENT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f4396f58-7008-46d9-acc0-4c02ea8cb8af
+                stepCounter: 18e541f8-e933-4f34-974c-0079e8cfc8d5
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1a1b0f0d-f771-4d8b-8149-835835691955
+          stepCounter: fee4976a-1087-495c-a468-d22e53a9c385
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: SESSION_TERM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: fbebf530-17e0-4005-b4f3-5bdd818a7cd8
+                stepCounter: 18e541f8-e933-4f34-974c-0079e8cfc8d5
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d4e97326-12aa-4574-806d-f9a26d8197c8
+          stepCounter: fee4976a-1087-495c-a468-d22e53a9c385
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: SESSION_DEFAULT_CHANNEL_GROUPING
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0d1fa036-6baa-4797-8663-2b4b27339496
+                stepCounter: 18e541f8-e933-4f34-974c-0079e8cfc8d5
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: bdfc9187-0bef-4472-8892-26cb2b510524
+          stepCounter: fee4976a-1087-495c-a468-d22e53a9c385
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: NON_DIRECT_SESSION_PARTITION_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a76a07b5-f703-4307-a6a5-0322c8ef8d9d
+                stepCounter: 18e541f8-e933-4f34-974c-0079e8cfc8d5
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: eae619a3-c1de-408f-9860-a8219e041ac2
+          stepCounter: fee4976a-1087-495c-a468-d22e53a9c385
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: SESSION_PARTITION_TIMESTAMP
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: min(event_timestamp)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          V_FIND_NON_DIRECT_SESSION_PARTITION_KEY: 18e541f8-e933-4f34-974c-0079e8cfc8d5
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: V_FIND_NON_DIRECT_SESSION_PARTITION_KEY
+        join:
+          joinCondition: |-
+            FROM {{ ref('TARGET', 'V_FIND_NON_DIRECT_SESSION_PARTITION_KEY') }} "V_FIND_NON_DIRECT_SESSION_PARTITION_KEY"
+            group by 1,2,3,4,5,6,7,8,9,10,11
+        name: V_STG_GA4__SESSIONS_TRAFFIC_SOURCES_DAILY
+        noLinkRefs: []
+  name: V_STG_GA4__SESSIONS_TRAFFIC_SOURCES_DAILY
+  overrideSQL: false
+  schema: ""
+  sqlType: View
+  type: sql
+  version: 1
+type: Node

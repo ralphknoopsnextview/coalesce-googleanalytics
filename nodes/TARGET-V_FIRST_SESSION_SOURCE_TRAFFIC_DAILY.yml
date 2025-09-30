@@ -1,0 +1,232 @@
+fileVersion: 1
+id: 03b8c491-4a4d-423d-a5c9-462d5feb541e
+name: V_FIRST_SESSION_SOURCE_TRAFFIC_DAILY
+operation:
+  config:
+    insertStrategy: UNION
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 720fa10d-bf25-44aa-9454-ec8acd6d9efb
+          stepCounter: 03b8c491-4a4d-423d-a5c9-462d5feb541e
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: CLIENT_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: cd5e600b-741f-4f30-9ab9-ee2116138282
+                stepCounter: a401242f-dce4-4bac-8047-c2bc69c12ddb
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2f7f0301-bfd2-45df-881c-2a201391145d
+          stepCounter: 03b8c491-4a4d-423d-a5c9-462d5feb541e
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: SESSION_PARTITION_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e6bdceaa-2e28-49d6-a497-b4d70284c4b0
+                stepCounter: a401242f-dce4-4bac-8047-c2bc69c12ddb
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f7bf2eaf-3e67-4884-b46f-f26e98f22f43
+          stepCounter: 03b8c491-4a4d-423d-a5c9-462d5feb541e
+        config: {}
+        dataType: DATE
+        description: ""
+        name: SESSION_PARTITION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9ee96428-6ad1-4c6b-b939-a299576f8c5d
+                stepCounter: a401242f-dce4-4bac-8047-c2bc69c12ddb
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 41565536-634c-4919-9bbf-3faa00c121f0
+          stepCounter: 03b8c491-4a4d-423d-a5c9-462d5feb541e
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: ""
+        name: EVENT_TIMESTAMP
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 040991bf-9bf5-48c9-8a1c-834712d3c019
+                stepCounter: a401242f-dce4-4bac-8047-c2bc69c12ddb
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 018f5134-b46d-40a0-b892-eaa857bf6510
+          stepCounter: 03b8c491-4a4d-423d-a5c9-462d5feb541e
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: SESSION_SOURCE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: |-
+              COALESCE(FIRST_VALUE(CASE WHEN event_source <> '(direct)' THEN event_source END IGNORE NULLS)
+                      OVER (PARTITION BY session_partition_key ORDER BY event_timestamp), '(direct)')
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0bf49e4f-e2c2-4048-814c-61d5c494d7bd
+          stepCounter: 03b8c491-4a4d-423d-a5c9-462d5feb541e
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: SESSION_MEDIUM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: |2-
+               COALESCE(FIRST_VALUE(CASE WHEN event_source <> '(direct)' THEN COALESCE(event_medium, '(none)') END IGNORE NULLS)
+                      OVER (PARTITION BY session_partition_key ORDER BY event_timestamp), '(none)')
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0d98abbb-e10b-4f48-9f5b-d55536fb480c
+          stepCounter: 03b8c491-4a4d-423d-a5c9-462d5feb541e
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: SESSION_SOURCE_CATEGORY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: |-
+              COALESCE(FIRST_VALUE(CASE WHEN event_source <> '(direct)' THEN COALESCE(source_category, '(none)') END IGNORE NULLS)
+                      OVER (PARTITION BY session_partition_key ORDER BY event_timestamp), '(none)')
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: b676bb71-c22a-4638-bfdc-29b3ea797444
+          stepCounter: 03b8c491-4a4d-423d-a5c9-462d5feb541e
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: SESSION_CAMPAIGN
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: |-
+              COALESCE(FIRST_VALUE(CASE WHEN event_source <> '(direct)' THEN COALESCE(event_campaign, '(none)') END IGNORE NULLS)
+                      OVER (PARTITION BY session_partition_key ORDER BY event_timestamp), '(none)')
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 65a94b6e-23cb-404c-a81d-b3496f653461
+          stepCounter: 03b8c491-4a4d-423d-a5c9-462d5feb541e
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: SESSION_CONTENT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: |-
+              COALESCE(FIRST_VALUE(CASE WHEN event_source <> '(direct)' THEN COALESCE(event_content, '(none)') END IGNORE NULLS)
+                      OVER (PARTITION BY session_partition_key ORDER BY event_timestamp), '(none)')
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9988f812-fa09-4c32-808d-6fda29bde920
+          stepCounter: 03b8c491-4a4d-423d-a5c9-462d5feb541e
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: SESSION_TERM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: |-
+              COALESCE(FIRST_VALUE(CASE WHEN event_source <> '(direct)' THEN COALESCE(event_term, '(none)') END IGNORE NULLS)
+                      OVER (PARTITION BY session_partition_key ORDER BY event_timestamp), '(none)')
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: ffda0fd5-cb45-4cbc-b00b-e861dec152c7
+          stepCounter: 03b8c491-4a4d-423d-a5c9-462d5feb541e
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: SESSION_DEFAULT_CHANNEL_GROUPING
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: |-
+              COALESCE(FIRST_VALUE(CASE WHEN event_source <> '(direct)' THEN COALESCE(default_channel_grouping, 'Direct') END IGNORE NULLS)
+                      OVER (PARTITION BY session_partition_key ORDER BY event_timestamp), 'Direct')
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: V_SET_DEFAULT_CHANNEL_GROUPING_TRAFFIC_DAILY
+        join:
+          joinCondition: FROM {{ ref('TARGET', 'V_SET_DEFAULT_CHANNEL_GROUPING_TRAFFIC_DAILY') }} "V_SET_DEFAULT_CHANNEL_GROUPING_TRAFFIC_DAILY"
+        name: V_FIRST_SESSION_SOURCE_TRAFFIC_DAILY
+        noLinkRefs: []
+  name: V_FIRST_SESSION_SOURCE_TRAFFIC_DAILY
+  overrideSQL: false
+  schema: ""
+  sqlType: View
+  type: sql
+  version: 1
+type: Node

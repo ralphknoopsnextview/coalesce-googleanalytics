@@ -1,0 +1,197 @@
+fileVersion: 1
+id: 3b687c8f-7173-437c-afee-25a3a6997d3f
+name: V_STG_GA4__CLIENT_KEY_FIRST_LAST_PAGEVIEWS
+operation:
+  config:
+    insertStrategy: UNION
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b189bbc9-bf69-4ca4-ad38-e69173fd740f
+          stepCounter: 3b687c8f-7173-437c-afee-25a3a6997d3f
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: CLIENT_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 44d7b08f-b643-428c-a5f0-7ee44530ca29
+                stepCounter: 918313d2-4c7d-4d85-80d2-331029d079de
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 05fb298e-4562-410d-8c8f-27c3b2633527
+          stepCounter: 3b687c8f-7173-437c-afee-25a3a6997d3f
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: FIRST_PAGE_VIEW_EVENT_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0653e757-a818-4de4-9b85-f7b33af4253d
+                stepCounter: 918313d2-4c7d-4d85-80d2-331029d079de
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8924dbff-e604-4611-a5ae-67fb98ab14d4
+          stepCounter: 3b687c8f-7173-437c-afee-25a3a6997d3f
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: LAST_PAGE_VIEW_EVENT_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: adbe34ac-ecd5-4f4e-a37f-4d95a57591f6
+                stepCounter: 918313d2-4c7d-4d85-80d2-331029d079de
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: d49a1838-ffe2-40dc-8e2a-4372ca66b836
+          stepCounter: 3b687c8f-7173-437c-afee-25a3a6997d3f
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: FIRST_PAGE_LOCATION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: FIRST_PAGE_VIEW.PAGE_HOSTNAME
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: b439de03-2cdc-4502-8feb-a8f902ff3eae
+          stepCounter: 3b687c8f-7173-437c-afee-25a3a6997d3f
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: FIRST_PAGE_HOSTNAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: FIRST_PAGE_VIEW.PAGE_HOSTNAME
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 817e1f6a-0b1b-420f-87e5-28fb2383696a
+          stepCounter: 3b687c8f-7173-437c-afee-25a3a6997d3f
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: FIRST_PAGE_REFERRER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: FIRST_PAGE_VIEW.PAGE_REFERRER
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: dee3446e-671f-45db-8ac3-d164f8235320
+          stepCounter: 3b687c8f-7173-437c-afee-25a3a6997d3f
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: LAST_PAGE_LOCATION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: LAST_PAGE_VIEW.PAGE_LOCATION
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 45cfbdc1-b669-4b36-b267-106b1452e5a6
+          stepCounter: 3b687c8f-7173-437c-afee-25a3a6997d3f
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: LAST_PAGE_HOSTNAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: LAST_PAGE_VIEW.PAGE_HOSTNAME
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 66e6f362-a603-4d0a-9b10-b0304119dcc8
+          stepCounter: 3b687c8f-7173-437c-afee-25a3a6997d3f
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: LAST_PAGE_REFERRER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: LAST_PAGE_VIEW.PAGE_REFERRER
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          FIRST_PAGE_VIEW: 4afda2df-bc6e-4f24-b0ca-3ad4d60c3213
+          LAST_PAGE_VIEW: 4afda2df-bc6e-4f24-b0ca-3ad4d60c3213
+          V_PAGE_VIEWS_BY_CLIENT_KEY: 918313d2-4c7d-4d85-80d2-331029d079de
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: V_PAGE_VIEWS_BY_CLIENT_KEY
+          - locationName: TARGET
+            nodeName: V_STG_GA4__EVENT_PAGE_VIEW
+        join:
+          joinCondition: |-
+            FROM {{ ref('TARGET', 'V_PAGE_VIEWS_BY_CLIENT_KEY') }} "V_PAGE_VIEWS_BY_CLIENT_KEY"
+
+             left join {{ ref('TARGET', 'V_STG_GA4__EVENT_PAGE_VIEW') }} FIRST_PAGE_VIEW
+                    on V_PAGE_VIEWS_BY_CLIENT_KEY.first_page_view_event_key = FIRST_PAGE_VIEW.event_key
+                left join {{ ref('TARGET', 'V_STG_GA4__EVENT_PAGE_VIEW') }} LAST_PAGE_VIEW
+                    on V_PAGE_VIEWS_BY_CLIENT_KEY.last_page_view_event_key = LAST_PAGE_VIEW.event_key
+        name: V_STG_GA4__CLIENT_KEY_FIRST_LAST_PAGEVIEWS
+        noLinkRefs: []
+  name: V_STG_GA4__CLIENT_KEY_FIRST_LAST_PAGEVIEWS
+  overrideSQL: false
+  schema: ""
+  sqlType: View
+  type: sql
+  version: 1
+type: Node

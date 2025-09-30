@@ -1,0 +1,50 @@
+fileVersion: 1
+id: 42e0a648-19f1-4231-9e1e-8f57291c7b87
+name: V_STG_GA4__DERIVED_USER_PROPERTIES
+operation:
+  config:
+    insertStrategy: UNION
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a38dac3f-1af5-4566-afb1-0c0593f8df5f
+          stepCounter: 42e0a648-19f1-4231-9e1e-8f57291c7b87
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: CLIENT_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3d434dad-ea95-4651-a7d1-1c605b044ee2
+                stepCounter: 157153e1-41c9-4b3d-90e1-07b2b96788cd
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: V_UNNEST_USER_PROPERTIES
+        join:
+          joinCondition: FROM {{ ref('TARGET', 'V_UNNEST_USER_PROPERTIES') }} "V_UNNEST_USER_PROPERTIES"
+        name: V_STG_GA4__DERIVED_USER_PROPERTIES
+        noLinkRefs: []
+  name: V_STG_GA4__DERIVED_USER_PROPERTIES
+  overrideSQL: false
+  schema: ""
+  sqlType: View
+  type: sql
+  version: 1
+type: Node

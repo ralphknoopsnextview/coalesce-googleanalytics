@@ -1,0 +1,551 @@
+fileVersion: 1
+id: 3534f6ee-74b2-482c-a7e5-32e271a5452f
+name: V_STG_GA4__EVENT_ITEMS
+operation:
+  config:
+    insertStrategy: UNION
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6898f372-d335-4f83-b266-049789d8408c
+          stepCounter: 3534f6ee-74b2-482c-a7e5-32e271a5452f
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: EVENT_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6478670a-a091-4697-a4cc-51cc70e1f8fd
+                stepCounter: d1181589-c832-402c-bee1-ba01e308c21c
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 299b70e6-590e-45d2-abaf-6021223ec341
+          stepCounter: 3534f6ee-74b2-482c-a7e5-32e271a5452f
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: EVENT_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: df70ef7c-a968-4751-a7e6-ee49b7a89dba
+                stepCounter: d1181589-c832-402c-bee1-ba01e308c21c
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f1006d2f-7f27-4c75-b1ae-f6a65e5dfa86
+          stepCounter: 3534f6ee-74b2-482c-a7e5-32e271a5452f
+        config: {}
+        dataType: DATE
+        description: ""
+        name: EVENT_DATE_DT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d93045ed-95cb-4333-a184-55c652abd906
+                stepCounter: d1181589-c832-402c-bee1-ba01e308c21c
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c2575b15-b498-42d1-8956-b5cdc2d7f23c
+          stepCounter: 3534f6ee-74b2-482c-a7e5-32e271a5452f
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: STREAM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 58ca73ba-fd41-4836-bda2-ab03c017afa7
+                stepCounter: d1181589-c832-402c-bee1-ba01e308c21c
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6c8e9214-f903-4508-9209-853a000a1ab8
+          stepCounter: 3534f6ee-74b2-482c-a7e5-32e271a5452f
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: ITEM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: i.value:item_id
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 85a2e1c0-459e-4c72-bef2-0b049bba550b
+          stepCounter: 3534f6ee-74b2-482c-a7e5-32e271a5452f
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: ITEM_BRAND
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: I.VALUE:ITEM_BRAND
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 53c149c5-86d6-4198-a1b5-be7293432bc0
+          stepCounter: 3534f6ee-74b2-482c-a7e5-32e271a5452f
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: ITEM_VARIANT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: I.VALUE:ITEM_VARIANT
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 21ca6182-d3f0-4590-9677-821100cb2471
+          stepCounter: 3534f6ee-74b2-482c-a7e5-32e271a5452f
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: ITEM_CATEGORY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: I.VALUE:ITEM_CATEGORY
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 651739a5-7a85-41ec-9607-35424dab820d
+          stepCounter: 3534f6ee-74b2-482c-a7e5-32e271a5452f
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: ITEM_CATEGORY2
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: I.VALUE:ITEM_CATEGORY2
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 86624b52-fdf0-4627-86b7-3100bf29827c
+          stepCounter: 3534f6ee-74b2-482c-a7e5-32e271a5452f
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: ITEM_CATEGORY3
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: I.VALUE:ITEM_CATEGORY3
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9b9823c0-a80c-44ed-b0ca-a44c990e014e
+          stepCounter: 3534f6ee-74b2-482c-a7e5-32e271a5452f
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: ITEM_CATEGORY4
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: I.VALUE:ITEM_CATEGORY4
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: b1f09088-835b-4324-af42-4718aeb5bf41
+          stepCounter: 3534f6ee-74b2-482c-a7e5-32e271a5452f
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: ITEM_CATEGORY5
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: I.VALUE:ITEM_CATEGORY5
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: d1400892-9dee-4002-b4dc-8b4511dd28c2
+          stepCounter: 3534f6ee-74b2-482c-a7e5-32e271a5452f
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: PRICE_IN_USD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: I.VALUE:PRICE_IN_USD
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1745a904-63dd-41cd-85a1-ab1d8c8d52cf
+          stepCounter: 3534f6ee-74b2-482c-a7e5-32e271a5452f
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: PRICE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: I.VALUE:PRICE
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 80dcda66-2898-4d1f-a1e7-df3e8bd9752b
+          stepCounter: 3534f6ee-74b2-482c-a7e5-32e271a5452f
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: QUANTITY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: I.VALUE:QUANTITY
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 60e1ec25-376f-4d42-aa06-f37d0b6a5f17
+          stepCounter: 3534f6ee-74b2-482c-a7e5-32e271a5452f
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: ITEM_REVENUE_IN_USD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: I.VALUE:ITEM_REVENUE_IN_USD
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: ff1954ab-96e2-4f1c-bcb2-3de54a6cdc94
+          stepCounter: 3534f6ee-74b2-482c-a7e5-32e271a5452f
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: ITEM_REVENUE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: I.VALUE:ITEM_REVENUE
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8790e4ad-beac-440b-bf6e-9ea85db85d27
+          stepCounter: 3534f6ee-74b2-482c-a7e5-32e271a5452f
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: ITEM_REFUND_IN_USD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: I.VALUE:ITEM_REFUND_IN_USD
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1027d41c-161c-4337-b6ee-387d79aead4a
+          stepCounter: 3534f6ee-74b2-482c-a7e5-32e271a5452f
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: ITEM_REFUND
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: I.VALUE:ITEM_REFUND
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0c0d8b66-cb09-4ed6-b9c9-94e779942696
+          stepCounter: 3534f6ee-74b2-482c-a7e5-32e271a5452f
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: COUPON
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: I.VALUE:COUPON
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: ae204733-f3c2-4303-ad08-b2ad7957debc
+          stepCounter: 3534f6ee-74b2-482c-a7e5-32e271a5452f
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: AFFILIATION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: I.VALUE:AFFILIATION
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: d2d316db-b4a7-4463-97b0-6f9d8cfffbcc
+          stepCounter: 3534f6ee-74b2-482c-a7e5-32e271a5452f
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: LOCATION_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: I.VALUE:LOCATION_ID
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 33388af3-8a0c-4ca2-9160-31dd3ae7d843
+          stepCounter: 3534f6ee-74b2-482c-a7e5-32e271a5452f
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: ITEM_LIST_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: I.VALUE:ITEM_LIST_ID
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5850e534-a7fe-42ed-9d91-6298330e29e1
+          stepCounter: 3534f6ee-74b2-482c-a7e5-32e271a5452f
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: ITEM_LIST_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: I.VALUE:ITEM_LIST_NAME
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 82636bea-5ba8-4876-b720-f9483220a164
+          stepCounter: 3534f6ee-74b2-482c-a7e5-32e271a5452f
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: ITEM_LIST_INDEX
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: I.VALUE:ITEM_LIST_INDEX
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 07c92ea4-51db-4616-a77a-cac4131979be
+          stepCounter: 3534f6ee-74b2-482c-a7e5-32e271a5452f
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: PROMOTION_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: I.VALUE:PROMOTION_ID
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: ed817b6a-978e-4864-8d8a-48343f0602dd
+          stepCounter: 3534f6ee-74b2-482c-a7e5-32e271a5452f
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: PROMOTION_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: I.VALUE:PROMOTION_NAME
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 129df21a-4cd9-4ddf-b99d-ebd1418873c2
+          stepCounter: 3534f6ee-74b2-482c-a7e5-32e271a5452f
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: CREATIVE_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: I.VALUE:CREATIVE_NAME
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8aba3fc6-8e82-4337-a1b7-0c2b19951f9d
+          stepCounter: 3534f6ee-74b2-482c-a7e5-32e271a5452f
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: CREATIVE_SLOT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: I.VALUE:CREATIVE_SLOT
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          V_STG_GA4__EVENTS: d1181589-c832-402c-bee1-ba01e308c21c
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: V_STG_GA4__EVENTS
+        join:
+          joinCondition: |-
+            FROM {{ ref('TARGET', 'V_STG_GA4__EVENTS') }} "V_STG_GA4__EVENTS",
+            LATERAL FLATTEN(input => items) AS i
+            WHERE event_name IN (
+                'add_payment_info', 'add_shipping_info', 'add_to_cart',
+                'add_to_wishlist', 'begin_checkout', 'purchase', 'refund',
+                'remove_from_cart', 'select_item', 'select_promotion',
+                'view_item_list', 'view_promotion', 'view_item'
+            )
+        name: V_STG_GA4__EVENT_ITEMS
+        noLinkRefs: []
+  name: V_STG_GA4__EVENT_ITEMS
+  overrideSQL: false
+  schema: ""
+  sqlType: View
+  type: sql
+  version: 1
+type: Node

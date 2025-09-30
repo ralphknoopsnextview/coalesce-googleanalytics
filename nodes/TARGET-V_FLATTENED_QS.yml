@@ -1,0 +1,67 @@
+fileVersion: 1
+id: e4e370f7-ecf5-400a-a53c-2d358159b7e8
+name: V_FLATTENED_QS
+operation:
+  config:
+    insertStrategy: UNION
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: aa90ae60-78cf-4001-a059-bf52eff056cd
+          stepCounter: e4e370f7-ecf5-400a-a53c-2d358159b7e8
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: EVENT_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5393504b-90c8-4d95-bad0-f26cf0590bdc
+                stepCounter: f81d28fb-beb9-4305-8c89-efdcf3a146fd
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9328aab0-d652-4155-802b-040ad5d03e84
+          stepCounter: e4e370f7-ecf5-400a-a53c-2d358159b7e8
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: PARAMS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 57918659-8f32-4880-bc71-6c65d7235ac4
+                stepCounter: f81d28fb-beb9-4305-8c89-efdcf3a146fd
+            transform: f.value
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          V_EVENT_AND_QUERY_STRING: f81d28fb-beb9-4305-8c89-efdcf3a146fd
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: V_EVENT_AND_QUERY_STRING
+        join:
+          joinCondition: |-
+            FROM {{ ref('TARGET', 'V_EVENT_AND_QUERY_STRING') }} "V_EVENT_AND_QUERY_STRING",
+            LATERAL FLATTEN(input => qs_split) AS f
+        name: V_FLATTENED_QS
+        noLinkRefs: []
+  name: V_FLATTENED_QS
+  overrideSQL: false
+  schema: ""
+  sqlType: View
+  type: sql
+  version: 1
+type: Node

@@ -1,0 +1,54 @@
+fileVersion: 1
+id: bd387d65-d1a5-4ef1-aa0c-7fafc199d4b4
+name: GA4_SOURCE_CATEGORIES
+operation:
+  database: ""
+  deployEnabled: true
+  description: ""
+  locationName: SOURCE
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 462c8bac-1c50-4fa2-8789-7101bd25834f
+          stepCounter: bd387d65-d1a5-4ef1-aa0c-7fafc199d4b4
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: SOURCE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 12e1727c-ac39-497e-8805-66c83a0ea753
+          stepCounter: bd387d65-d1a5-4ef1-aa0c-7fafc199d4b4
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: SOURCE_CATEGORY
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: GA4_SOURCE_CATEGORIES
+  schema: ""
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node

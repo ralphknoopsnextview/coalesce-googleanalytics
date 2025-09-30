@@ -1,0 +1,82 @@
+fileVersion: 1
+id: 744b9364-9264-40b7-a8c3-d42f93da9010
+name: V_STG_GA4__EVENT_TO_QUERY_STRING_PARAMS
+operation:
+  config:
+    insertStrategy: UNION
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c0a25a14-b25d-4487-8a7b-5002e46b19a0
+          stepCounter: 744b9364-9264-40b7-a8c3-d42f93da9010
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: EVENT_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: aa90ae60-78cf-4001-a059-bf52eff056cd
+                stepCounter: e4e370f7-ecf5-400a-a53c-2d358159b7e8
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 39e5e3d5-f583-444e-ac66-cb0aa38e6f0c
+          stepCounter: 744b9364-9264-40b7-a8c3-d42f93da9010
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: PARAMS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9328aab0-d652-4155-802b-040ad5d03e84
+                stepCounter: e4e370f7-ecf5-400a-a53c-2d358159b7e8
+            transform: SPLIT(params, '=')[0]
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8cd4c668-79f4-4cdd-a995-6ec4e14e87da
+          stepCounter: 744b9364-9264-40b7-a8c3-d42f93da9010
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: VALUE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: NULLIF(SPLIT(params, '=')[1], '')
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: V_FLATTENED_QS
+        join:
+          joinCondition: FROM {{ ref('TARGET', 'V_FLATTENED_QS') }} "V_FLATTENED_QS"
+        name: V_STG_GA4__EVENT_TO_QUERY_STRING_PARAMS
+        noLinkRefs: []
+  name: V_STG_GA4__EVENT_TO_QUERY_STRING_PARAMS
+  overrideSQL: false
+  schema: ""
+  sqlType: View
+  type: sql
+  version: 1
+type: Node

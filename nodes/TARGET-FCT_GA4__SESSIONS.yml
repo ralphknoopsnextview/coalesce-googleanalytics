@@ -1,0 +1,173 @@
+fileVersion: 1
+id: f21cd689-8893-47c8-9d12-c5c3278099c2
+name: FCT_GA4__SESSIONS
+operation:
+  config:
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3e33d1bc-8933-430d-9f6a-5155a64c8cbd
+          stepCounter: f21cd689-8893-47c8-9d12-c5c3278099c2
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: CLIENT_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: be4b78ad-7e6e-4168-a1fb-b784e0051ad3
+                stepCounter: 90a9aa91-57de-4cfb-9b45-835a6e7f9bf8
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 71203b5b-2524-49ed-ad14-70d839026610
+          stepCounter: f21cd689-8893-47c8-9d12-c5c3278099c2
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        isBusinessKey: true
+        name: SESSION_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8fa9e5df-f02a-48c1-81cd-c7f8c3b72696
+                stepCounter: 90a9aa91-57de-4cfb-9b45-835a6e7f9bf8
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ac7f09e5-2eb3-4248-a59b-3edda30d899a
+          stepCounter: f21cd689-8893-47c8-9d12-c5c3278099c2
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: STREAM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 01b4432d-613b-4ccd-ad39-733e8d0d6418
+                stepCounter: 90a9aa91-57de-4cfb-9b45-835a6e7f9bf8
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0be0f60c-51dc-496f-bcbf-dddd6234f5f8
+          stepCounter: f21cd689-8893-47c8-9d12-c5c3278099c2
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: ""
+        name: SESSION_START_TIMESTAMP
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9ffbc1f1-8de8-4447-af5e-d27eadfe05a9
+                stepCounter: 90a9aa91-57de-4cfb-9b45-835a6e7f9bf8
+            transform: MIN(SESSION_PARTITION_MIN_TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: bff369ed-1ecb-4872-86e7-cdfc5146a018
+          stepCounter: f21cd689-8893-47c8-9d12-c5c3278099c2
+        config: {}
+        dataType: DATE
+        description: ""
+        name: SESSION_START_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d52f3651-4ff9-4f43-93bf-c20ebf7a63b0
+                stepCounter: 90a9aa91-57de-4cfb-9b45-835a6e7f9bf8
+            transform: "   MIN(SESSION_PARTITION_DATE)"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 904e3cf0-35a2-4748-a449-c3df3fc6d82f
+          stepCounter: f21cd689-8893-47c8-9d12-c5c3278099c2
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: COUNT_PAGEVIEWS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: daaf16f1-ef64-41f5-8995-c2e5398406bb
+                stepCounter: 90a9aa91-57de-4cfb-9b45-835a6e7f9bf8
+            transform: "   SUM(SESSION_PARTITION_COUNT_PAGE_VIEWS)"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b847cc54-c418-4c01-8287-07dc7ee34cc5
+          stepCounter: f21cd689-8893-47c8-9d12-c5c3278099c2
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: SUM_EVENT_VALUE_IN_USD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d99a99c6-27cd-40df-a949-67947da6d2be
+                stepCounter: 90a9aa91-57de-4cfb-9b45-835a6e7f9bf8
+            transform: "   SUM(SESSION_PARTITION_SUM_EVENT_VALUE_IN_USD)"
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8f6cc012-6a56-43bb-88a4-fd5a6dc7a3a8
+          stepCounter: f21cd689-8893-47c8-9d12-c5c3278099c2
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemCreateDate: true
+        name: SYSTEM_CREATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: e18033db-ef66-4d8d-86b8-05aa1353d9dc
+          stepCounter: f21cd689-8893-47c8-9d12-c5c3278099c2
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemUpdateDate: true
+        name: SYSTEM_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          FCT_GA4__SESSIONS_DAILY: 90a9aa91-57de-4cfb-9b45-835a6e7f9bf8
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: FCT_GA4__SESSIONS_DAILY
+        join:
+          joinCondition: |-
+            FROM {{ ref('TARGET', 'FCT_GA4__SESSIONS_DAILY') }} "FCT_GA4__SESSIONS_DAILY"
+            group by 1,2,3
+        name: FCT_GA4__SESSIONS
+        noLinkRefs: []
+  name: FCT_GA4__SESSIONS
+  overrideSQL: false
+  schema: ""
+  sqlType: Fact
+  type: sql
+  version: 1
+type: Node

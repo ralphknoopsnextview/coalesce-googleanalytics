@@ -1,0 +1,81 @@
+fileVersion: 1
+id: effb79ac-00ca-444a-b54f-393a608c9147
+name: V_STG_GA4__USER_ID_MAPPING
+operation:
+  config:
+    insertStrategy: UNION
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: be2020b5-d4c2-438e-a18c-0af5a45d50be
+          stepCounter: effb79ac-00ca-444a-b54f-393a608c9147
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: LAST_SEEN_USER_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ce50f5b8-0b6e-461a-a488-06fa16dc0e75
+                stepCounter: fc9c7dda-d016-450a-9ae9-87ad7d1c678a
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1ff2348d-9516-4746-949c-555a4236aac4
+          stepCounter: effb79ac-00ca-444a-b54f-393a608c9147
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: CLIENT_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d830783b-79ea-4b59-be1d-75e6947bd0db
+                stepCounter: fc9c7dda-d016-450a-9ae9-87ad7d1c678a
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8c9460fa-d03c-42c6-a4a9-47aae6b57b5b
+          stepCounter: effb79ac-00ca-444a-b54f-393a608c9147
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: ""
+        name: LAST_SEEN_USER_ID_TIMESTAMP
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 85504193-5240-4b18-915e-9baec773ce27
+                stepCounter: fc9c7dda-d016-450a-9ae9-87ad7d1c678a
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          V_INCLUDE_LAST_SEEN_TIMESTAMP: fc9c7dda-d016-450a-9ae9-87ad7d1c678a
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: V_INCLUDE_LAST_SEEN_TIMESTAMP
+        join:
+          joinCondition: |
+            FROM {{ ref('TARGET', 'V_INCLUDE_LAST_SEEN_TIMESTAMP') }} "V_INCLUDE_LAST_SEEN_TIMESTAMP"
+             qualify row_number() over(partition by client_key order by last_seen_user_id_timestamp desc) = 1
+        name: V_STG_GA4__USER_ID_MAPPING
+        noLinkRefs: []
+  name: V_STG_GA4__USER_ID_MAPPING
+  overrideSQL: false
+  schema: ""
+  sqlType: View
+  type: sql
+  version: 1
+type: Node

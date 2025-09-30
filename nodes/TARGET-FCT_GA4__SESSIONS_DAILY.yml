@@ -1,0 +1,172 @@
+fileVersion: 1
+id: 90a9aa91-57de-4cfb-9b45-835a6e7f9bf8
+name: FCT_GA4__SESSIONS_DAILY
+operation:
+  config:
+    insertStrategy: UNION
+    postSQL: null
+    preSQL: null
+    selectDistinct: false
+    testsEnabled: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8fa9e5df-f02a-48c1-81cd-c7f8c3b72696
+          stepCounter: 90a9aa91-57de-4cfb-9b45-835a6e7f9bf8
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        isBusinessKey: true
+        name: SESSION_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 75474885-8627-403a-bf62-4d2c19c9c89f
+                stepCounter: d1181589-c832-402c-bee1-ba01e308c21c
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 66b4b925-b928-4b90-bf36-e7b035ca3cdf
+          stepCounter: 90a9aa91-57de-4cfb-9b45-835a6e7f9bf8
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        isBusinessKey: true
+        name: SESSION_PARTITION_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a0d07b80-e4ed-48be-b4f4-4de8d5815a97
+                stepCounter: d1181589-c832-402c-bee1-ba01e308c21c
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: be4b78ad-7e6e-4168-a1fb-b784e0051ad3
+          stepCounter: 90a9aa91-57de-4cfb-9b45-835a6e7f9bf8
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: CLIENT_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 91ebeb26-576c-404c-b05c-105034f2ddd2
+                stepCounter: d1181589-c832-402c-bee1-ba01e308c21c
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01b4432d-613b-4ccd-ad39-733e8d0d6418
+          stepCounter: 90a9aa91-57de-4cfb-9b45-835a6e7f9bf8
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: STREAM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 58ca73ba-fd41-4836-bda2-ab03c017afa7
+                stepCounter: d1181589-c832-402c-bee1-ba01e308c21c
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 258af3a2-a906-4c30-9c19-fed8aa6bd80b
+          stepCounter: 90a9aa91-57de-4cfb-9b45-835a6e7f9bf8
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: USER_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 88894424-7217-4307-b513-58ff397d7d2f
+                stepCounter: d1181589-c832-402c-bee1-ba01e308c21c
+            transform: max(V_STG_GA4__EVENTS."USER_ID")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d52f3651-4ff9-4f43-93bf-c20ebf7a63b0
+          stepCounter: 90a9aa91-57de-4cfb-9b45-835a6e7f9bf8
+        config: {}
+        dataType: DATE
+        description: ""
+        isBusinessKey: true
+        name: SESSION_PARTITION_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d93045ed-95cb-4333-a184-55c652abd906
+                stepCounter: d1181589-c832-402c-bee1-ba01e308c21c
+            transform: MIN("V_STG_GA4__EVENTS"."EVENT_DATE_DT")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9ffbc1f1-8de8-4447-af5e-d27eadfe05a9
+          stepCounter: 90a9aa91-57de-4cfb-9b45-835a6e7f9bf8
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: ""
+        name: SESSION_PARTITION_MIN_TIMESTAMP
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b22f9c40-4179-456e-9c69-68521392dc57
+                stepCounter: d1181589-c832-402c-bee1-ba01e308c21c
+            transform: MIN("V_STG_GA4__EVENTS"."EVENT_TIMESTAMP")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: daaf16f1-ef64-41f5-8995-c2e5398406bb
+          stepCounter: 90a9aa91-57de-4cfb-9b45-835a6e7f9bf8
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: SESSION_PARTITION_COUNT_PAGE_VIEWS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: df70ef7c-a968-4751-a7e6-ee49b7a89dba
+                stepCounter: d1181589-c832-402c-bee1-ba01e308c21c
+            transform: COUNT_IF("V_STG_GA4__EVENTS"."EVENT_NAME" = 'page_view')
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d99a99c6-27cd-40df-a949-67947da6d2be
+          stepCounter: 90a9aa91-57de-4cfb-9b45-835a6e7f9bf8
+        config: {}
+        dataType: FLOAT
+        description: ""
+        name: SESSION_PARTITION_SUM_EVENT_VALUE_IN_USD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8f9b9e7e-fe85-43d2-858b-fbc4fae39d8f
+                stepCounter: d1181589-c832-402c-bee1-ba01e308c21c
+            transform: SUM("V_STG_GA4__EVENTS"."EVENT_VALUE_IN_USD")
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          V_STG_GA4__EVENTS: d1181589-c832-402c-bee1-ba01e308c21c
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: V_STG_GA4__EVENTS
+        join:
+          joinCondition: |-
+            FROM {{ ref('TARGET', 'V_STG_GA4__EVENTS') }} "V_STG_GA4__EVENTS"
+            where session_key is not null
+            group by 1,2,3,4
+        name: FCT_GA4__SESSIONS_DAILY
+        noLinkRefs: []
+  name: FCT_GA4__SESSIONS_DAILY
+  overrideSQL: false
+  schema: ""
+  sqlType: Fact
+  type: sql
+  version: 1
+type: Node

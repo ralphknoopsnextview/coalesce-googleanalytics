@@ -1,0 +1,64 @@
+fileVersion: 1
+id: 8e42bb59-ef96-46da-bc53-ceb580cc84ee
+name: V_UNNEST_EVENT_PARAMS
+operation:
+  config:
+    insertStrategy: UNION
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 717e2532-cb4d-4147-b5a1-236b17c8be16
+          stepCounter: 8e42bb59-ef96-46da-bc53-ceb580cc84ee
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: SESSION_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c7b759ff-2e12-4f17-bdc4-afac2ec9aaa7
+                stepCounter: 7b6094aa-f28d-41e5-984c-7f499abf158b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2409b966-08f8-4ba5-8a9b-db69ae581279
+          stepCounter: 8e42bb59-ef96-46da-bc53-ceb580cc84ee
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: ""
+        name: EVENT_TIMESTAMP
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1f6739d0-21e5-4211-9794-5ca5dc69ff8c
+                stepCounter: 7b6094aa-f28d-41e5-984c-7f499abf158b
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: V_EVENTS_FROM_VALID_USERS
+        join:
+          joinCondition: FROM {{ ref('TARGET', 'V_EVENTS_FROM_VALID_USERS') }} "V_EVENTS_FROM_VALID_USERS"
+        name: V_UNNEST_EVENT_PARAMS
+        noLinkRefs: []
+  name: V_UNNEST_EVENT_PARAMS
+  overrideSQL: false
+  schema: ""
+  sqlType: View
+  type: sql
+  version: 1
+type: Node
