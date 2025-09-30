@@ -4,8 +4,6 @@ name: V_STG_GA4__EVENT_PAGE_VIEW
 operation:
   config:
     insertStrategy: UNION
-    postSQL: null
-    preSQL: null
     selectDistinct: false
     testsEnabled: false
     truncateBefore: false

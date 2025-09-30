@@ -4,8 +4,6 @@ name: FCT_GA4__SESSIONS_DAILY
 operation:
   config:
     insertStrategy: UNION
-    postSQL: null
-    preSQL: null
     selectDistinct: false
     testsEnabled: false
   database: ""
